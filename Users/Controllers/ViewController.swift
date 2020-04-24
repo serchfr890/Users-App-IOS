@@ -10,12 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: Outlets
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var userMailTextBox: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var initSessionButton: UIButton!
+    @IBOutlet weak var forgottenPasswordButton: UIButton!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-    @IBOutlet weak var rte: UILabel!
+    
     
 }
 
