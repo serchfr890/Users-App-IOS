@@ -21,6 +21,8 @@ class UsersListViewController: UIViewController {
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         tableView.delegate = self
+        view.backgroundColor = .brown
+        tableView.backgroundColor = .brown
 
         // Do any additional setup after loading the view.
     }
@@ -40,6 +42,7 @@ extension UsersListViewController: UITableViewDataSource {
             cell = UITableViewCell(style: .default, reuseIdentifier: "myCell")
             cell?.textLabel?.font = UIFont.systemFont(ofSize: 20.0)
             cell?.accessoryType = .disclosureIndicator
+            cell?.backgroundColor = .brown
         }
         cell!.textLabel?.text = myCountries[indexPath.row]
         return cell!

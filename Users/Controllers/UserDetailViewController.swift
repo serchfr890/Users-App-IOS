@@ -11,23 +11,69 @@ import UIKit
 class UserDetailViewController: UIViewController {
     
     var country: String?
-
+    
+    
+    // MARK: - Outlets
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var staticNameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var staticSurnameLabel: UILabel!
+    @IBOutlet weak var surnameLabel: UILabel!
+    @IBOutlet weak var staticEmailAddressLabel: UILabel!
+    @IBOutlet weak var emailAddressLabel: UILabel!
+    @IBOutlet weak var navBarModal: UINavigationBar!
+    
+    
+    // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.brown
         print("Valor de la pagina anterior: \(country!)")
+        navBarModal.topItem?.title = country
 
         // Do any additional setup after loading the view.
+        setupItemsView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Functions
+    private func setupItemsView() -> Void{
+        // Configure Image User
+        userImage.image = UIImage(named: "user_logo.png")
+        userImage.clipsToBounds = true
+        
+        // Configure staticNameLabel
+        setupStaticsLabels(staticLabel: staticNameLabel, description: "Nombre:")
+        
+        // Configure nameLabel
+        setupLabels(label: nameLabel, description: "Sergio")
+        
+        // Configure staticSurname
+        setupStaticsLabels(staticLabel: staticSurnameLabel, description: "Apellidos:")
+        
+        // Configure surmaneLabel
+        setupLabels(label: surnameLabel, description: "Flores Ramírez")
+        
+        // Configure staticEmailAddressLabel
+        setupStaticsLabels(staticLabel: staticEmailAddressLabel, description: "Coreeo Electrónico:")
+        
+        // Configure emailAddresLabel
+        setupLabels(label: emailAddressLabel, description: "sergio.flores@axity.com")
     }
-    */
+    
+    private func setupStaticsLabels(staticLabel: UILabel, description: String) -> Void {
+        staticLabel.text = description
+        staticLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+        staticLabel.clipsToBounds = true
+        
+    }
+    
+    private func setupLabels(label: UILabel, description: String) -> Void{
+        label.text = description
+        label.font = UIFont.systemFont(ofSize: 18.0)
+        label.backgroundColor = UIColor.white
+        label.alpha = 0.6
+        label.layer.cornerRadius = 5
+        label.clipsToBounds = true
+    }
 
 }
