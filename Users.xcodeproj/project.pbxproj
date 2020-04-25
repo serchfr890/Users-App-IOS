@@ -17,6 +17,7 @@
 		7CF0E3E52453C42F00509E7B /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF0E3E42453C42F00509E7B /* UsersListViewController.swift */; };
 		7CF0E3E72453C45600509E7B /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF0E3E62453C45600509E7B /* UserDetailViewController.swift */; };
 		7CF0E3EA2453CF7400509E7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF0E3E82453CF7400509E7B /* Main.storyboard */; };
+		7CF0E3EC2454AB2800509E7B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF0E3EB2454AB2800509E7B /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		7CF0E3E42453C42F00509E7B /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 		7CF0E3E62453C45600509E7B /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		7CF0E3E92453CF7400509E7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7CF0E3EB2454AB2800509E7B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		7CF0E3DA24539D0D00509E7B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7CF0E3EB2454AB2800509E7B /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			files = (
 				7CF0E3E324539E6E00509E7B /* ViewController.swift in Sources */,
 				7CF0E3E72453C45600509E7B /* UserDetailViewController.swift in Sources */,
+				7CF0E3EC2454AB2800509E7B /* User.swift in Sources */,
 				7CF0E3E52453C42F00509E7B /* UsersListViewController.swift in Sources */,
 				7CF0E3AB24539CF800509E7B /* AppDelegate.swift in Sources */,
 				7CF0E3AD24539CF800509E7B /* SceneDelegate.swift in Sources */,

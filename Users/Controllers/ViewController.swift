@@ -9,6 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // MARCK: - Life cycles
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        setupItemsView()
+    }
 
     // MARK: - Outlets
     @IBOutlet weak var headerLabel: UILabel!
@@ -17,17 +24,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var initSessionButton: UIButton!
     @IBOutlet weak var forgottenPasswordButton: UIButton!
     
+    // MARK: - Actions Buttons
+    @IBAction func initSessionAction(_ sender: UIButton) {
+        print("Iniciar sesion work´s")
+        performSegue(withIdentifier: "UserListVC", sender: self)
+        
+    }
     
-    
-    // MARCK: - Life cycles
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        setupItemsView()
+    @IBAction func forgottenPasswordAction(_ sender: Any) {
+        print("Función no implementada")
     }
     
     // MARK: - Functions
-    
     private func setupItemsView() {
         
         // Configuration header label
@@ -47,7 +55,6 @@ class ViewController: UIViewController {
         userMailTextBox.autocapitalizationType = UITextAutocapitalizationType.allCharacters
         userMailTextBox.alpha = 0.6
         userMailTextBox.clipsToBounds = true
-        
         
         // Configuration password text field
         passwordTextField.placeholder = "Contraseña"
@@ -74,16 +81,6 @@ class ViewController: UIViewController {
         forgottenPasswordButton.clipsToBounds = true
     }
     
-    
-    @IBAction func initSessionAction(_ sender: UIButton) {
-        print("Iniciar sesion work´s")
-        performSegue(withIdentifier: "UserListVC", sender: self)
-        
-    }
-    
-    @IBAction func forgottenPasswordAction(_ sender: Any) {
-        print("Función no implementada")
-    }
     
 }
 

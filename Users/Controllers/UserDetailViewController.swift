@@ -10,7 +10,8 @@ import UIKit
 
 class UserDetailViewController: UIViewController {
     
-    var country: String?
+    // MARK: - Variables
+    var user: User?
     
     
     // MARK: - Outlets
@@ -27,37 +28,40 @@ class UserDetailViewController: UIViewController {
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.brown
-        print("Valor de la pagina anterior: \(country!)")
-        navBarModal.topItem?.title = country
-
+        
         // Do any additional setup after loading the view.
+        
+        navBarModal.topItem?.title = user!.name
         setupItemsView()
     }
     
     // MARK: - Functions
     private func setupItemsView() -> Void{
+        
+        // Change backgroudcolor from View
+        view.backgroundColor = UIColor.brown
+        
         // Configure Image User
-        userImage.image = UIImage(named: "user_logo.png")
+        userImage.image = UIImage(named: user!.userPhoto)
         userImage.clipsToBounds = true
         
         // Configure staticNameLabel
         setupStaticsLabels(staticLabel: staticNameLabel, description: "Nombre:")
         
         // Configure nameLabel
-        setupLabels(label: nameLabel, description: "Sergio")
+        setupLabels(label: nameLabel, description: user!.name)
         
         // Configure staticSurname
         setupStaticsLabels(staticLabel: staticSurnameLabel, description: "Apellidos:")
         
         // Configure surmaneLabel
-        setupLabels(label: surnameLabel, description: "Flores Ramírez")
+        setupLabels(label: surnameLabel, description: user!.surname)
         
         // Configure staticEmailAddressLabel
         setupStaticsLabels(staticLabel: staticEmailAddressLabel, description: "Coreeo Electrónico:")
         
         // Configure emailAddresLabel
-        setupLabels(label: emailAddressLabel, description: "sergio.flores@axity.com")
+        setupLabels(label: emailAddressLabel, description: user!.emailAddress)
     }
     
     private func setupStaticsLabels(staticLabel: UILabel, description: String) -> Void {
