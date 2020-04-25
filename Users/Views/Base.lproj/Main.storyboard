@@ -97,11 +97,12 @@
                         <outlet property="initSessionButton" destination="xep-jC-wMj" id="EjX-vW-yRW"/>
                         <outlet property="passwordTextField" destination="gsg-jL-KeJ" id="x0K-Yc-dVn"/>
                         <outlet property="userMailTextBox" destination="ANZ-f3-WdA" id="YDi-rC-SEh"/>
+                        <segue destination="8zH-Bz-2Js" kind="show" identifier="UserListVC" id="vWc-gd-daE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.2" y="137.4384236453202"/>
+            <point key="canvasLocation" x="1087" y="137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Vn-gJ-Y4A">
@@ -120,6 +121,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zRK-Du-tyk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+        <!--Users List View Controller-->
+        <scene sceneID="Kd7-ck-fA0">
+            <objects>
+                <viewController storyboardIdentifier="UsersListVC" id="8zH-Bz-2Js" customClass="UsersListViewController" customModule="Users" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aP7-GQ-jMO" customClass="UsersList">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kq3-4H-OT2">
+                                <rect key="frame" x="126" y="313" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go to Detailk user"/>
+                                <connections>
+                                    <action selector="goToUserDetail:" destination="8zH-Bz-2Js" eventType="touchUpInside" id="aVt-1p-eTC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3BW-2v-v9E"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1aH-bP-uke"/>
+                    <connections>
+                        <segue destination="Jfh-uX-vZP" kind="presentation" identifier="UserDetailVC" id="hv1-bh-Lso"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nuu-gV-Aa9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1881" y="137"/>
+        </scene>
+        <!--User Detail View Controller-->
+        <scene sceneID="Qpu-Or-BUs">
+            <objects>
+                <viewController storyboardIdentifier="UserDetailVC" id="Jfh-uX-vZP" customClass="UserDetailViewController" customModule="Users" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PVq-Gb-jOb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="SnU-pn-VJJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GRA-zT-v5f"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j4w-JI-tP9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2718" y="137"/>
         </scene>
     </scenes>
     <resources>

@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         
         // Configure forgotten password button
         forgottenPasswordButton.setTitle("¿Olvidaste tu Contraseña", for: .normal)
-        forgottenPasswordButton.setTitleColor(UIColor.brown, for: .normal)
+        forgottenPasswordButton.setTitleColor(UIColor.white, for: .normal)
         forgottenPasswordButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
         forgottenPasswordButton.clipsToBounds = true
     }
@@ -77,6 +77,7 @@ class ViewController: UIViewController {
     
     @IBAction func initSessionAction(_ sender: UIButton) {
         print("Iniciar sesion work´s")
+        performSegue(withIdentifier: "UserListVC", sender: self)
         
     }
     
