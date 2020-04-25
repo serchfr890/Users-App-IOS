@@ -130,20 +130,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kq3-4H-OT2">
-                                <rect key="frame" x="126" y="313" width="123" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go to Detailk user"/>
-                                <connections>
-                                    <action selector="goToUserDetail:" destination="8zH-Bz-2Js" eventType="touchUpInside" id="aVt-1p-eTC"/>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BMv-Oh-eNQ">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3BW-2v-v9E" firstAttribute="bottom" secondItem="BMv-Oh-eNQ" secondAttribute="bottom" id="GWd-UZ-W8e"/>
+                            <constraint firstItem="3BW-2v-v9E" firstAttribute="trailing" secondItem="BMv-Oh-eNQ" secondAttribute="trailing" id="JkS-NS-rs4"/>
+                            <constraint firstItem="BMv-Oh-eNQ" firstAttribute="leading" secondItem="3BW-2v-v9E" secondAttribute="leading" id="kmP-4T-xVd"/>
+                            <constraint firstItem="BMv-Oh-eNQ" firstAttribute="top" secondItem="3BW-2v-v9E" secondAttribute="top" id="l8s-hX-eoQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3BW-2v-v9E"/>
                     </view>
                     <navigationItem key="navigationItem" id="1aH-bP-uke"/>
                     <connections>
+                        <outlet property="tableView" destination="BMv-Oh-eNQ" id="j8Y-Te-h5h"/>
                         <segue destination="Jfh-uX-vZP" kind="presentation" identifier="UserDetailVC" id="hv1-bh-Lso"/>
                     </connections>
                 </viewController>

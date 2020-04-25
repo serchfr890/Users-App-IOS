@@ -9,9 +9,12 @@
 import UIKit
 
 class UserDetailViewController: UIViewController {
+    
+    var country: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Valor de la pagina anterior: \(country!)")
 
         // Do any additional setup after loading the view.
     }
