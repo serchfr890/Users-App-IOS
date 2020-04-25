@@ -23,11 +23,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var initSessionButton: UIButton!
     @IBOutlet weak var forgottenPasswordButton: UIButton!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     // MARK: - Actions Buttons
     @IBAction func initSessionAction(_ sender: UIButton) {
         print("Iniciar sesion work´s")
-        performSegue(withIdentifier: "UserListVC", sender: self)
+        loading.color = .white
+        loading.startAnimating()
+        loading.hidesWhenStopped = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.performSegue(withIdentifier: "UserListVC", sender: self)
+            self.loading.stopAnimating()
+        }
+
         
     }
     

@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fonde" translatesAutoresizingMaskIntoConstraints="NO" id="NTI-hX-7gI">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375.00000000000011" height="812"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dI2-6Y-jQZ">
                                 <rect key="frame" x="16" y="148" width="343" height="40"/>
@@ -65,11 +65,15 @@
                                     <action selector="initSessionAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bRQ-RR-GZK"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="acS-Dc-AvD">
+                                <rect key="frame" x="177" y="536" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.97507780789999998" green="0.97507792709999996" blue="0.97507780789999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dI2-6Y-jQZ" secondAttribute="trailing" constant="16" id="1bP-uG-llj"/>
                             <constraint firstItem="dI2-6Y-jQZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="3X0-gz-cPZ"/>
+                            <constraint firstItem="acS-Dc-AvD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="177" id="3cs-4c-WyF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gsg-jL-KeJ" secondAttribute="trailing" constant="16" id="530-xX-o1d"/>
                             <constraint firstItem="NTI-hX-7gI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="64t-9C-L4l"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4if-Zu-HlE" secondAttribute="trailing" constant="16" id="6fU-ZR-bGf"/>
@@ -78,6 +82,7 @@
                             <constraint firstItem="4if-Zu-HlE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="KNV-Pj-XRn"/>
                             <constraint firstItem="4if-Zu-HlE" firstAttribute="top" secondItem="xep-jC-wMj" secondAttribute="bottom" constant="16" id="L4N-cc-StW"/>
                             <constraint firstItem="xep-jC-wMj" firstAttribute="top" secondItem="gsg-jL-KeJ" secondAttribute="bottom" constant="32" id="MoY-3D-ElY"/>
+                            <constraint firstItem="acS-Dc-AvD" firstAttribute="top" secondItem="4if-Zu-HlE" secondAttribute="bottom" constant="72" id="Rlf-0p-kI1"/>
                             <constraint firstItem="gsg-jL-KeJ" firstAttribute="top" secondItem="ANZ-f3-WdA" secondAttribute="bottom" constant="16" id="Uz7-SK-rdR"/>
                             <constraint firstItem="gsg-jL-KeJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="V9c-lG-Smk"/>
                             <constraint firstItem="NTI-hX-7gI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WWe-Pe-VQs"/>
@@ -85,8 +90,10 @@
                             <constraint firstItem="NTI-hX-7gI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="czN-V6-57s"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xep-jC-wMj" secondAttribute="trailing" constant="16" id="eOs-iR-Tuc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ANZ-f3-WdA" secondAttribute="trailing" constant="16" id="gax-Xe-1xa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="acS-Dc-AvD" secondAttribute="trailing" constant="178" id="iPF-9G-JPt"/>
                             <constraint firstItem="xep-jC-wMj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="k1Q-ea-Bd9"/>
                             <constraint firstItem="ANZ-f3-WdA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="pEy-pV-OOC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="acS-Dc-AvD" secondAttribute="bottom" constant="222" id="vuc-hF-9U6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -95,6 +102,7 @@
                         <outlet property="forgottenPasswordButton" destination="4if-Zu-HlE" id="AJR-gC-Hpc"/>
                         <outlet property="headerLabel" destination="dI2-6Y-jQZ" id="2UX-rX-pph"/>
                         <outlet property="initSessionButton" destination="xep-jC-wMj" id="EjX-vW-yRW"/>
+                        <outlet property="loading" destination="acS-Dc-AvD" id="8oD-tQ-9ZS"/>
                         <outlet property="passwordTextField" destination="gsg-jL-KeJ" id="x0K-Yc-dVn"/>
                         <outlet property="userMailTextBox" destination="ANZ-f3-WdA" id="YDi-rC-SEh"/>
                         <segue destination="8zH-Bz-2Js" kind="show" identifier="UserListVC" id="vWc-gd-daE"/>
@@ -102,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1087" y="137"/>
+            <point key="canvasLocation" x="1085.5999999999999" y="136.69950738916256"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Vn-gJ-Y4A">
