@@ -29,6 +29,13 @@ class UsersListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        let networkmanager = NetworkManager()
+        networkmanager.getAllUsers() { (userResponse) in
+            print("Users: \(userResponse)")
+            
+        }
+        
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.tableFooterView = UIView()

@@ -27,17 +27,23 @@ class ViewController: UIViewController {
     
     // MARK: - Actions Buttons
     @IBAction func initSessionAction(_ sender: UIButton) {
-        print("Iniciar sesion work´s")
         loading.color = .white
         loading.startAnimating()
         loading.hidesWhenStopped = true
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.performSegue(withIdentifier: "UserListVC", sender: self)
+        
+        let userMail = userMailTextBox.text!
+        let password = passwordTextField.text!
+        let networkManager = NetworkManager()
+        networkManager.doLogin(emailAddress: userMail, password: password) {
+            (statusCode) in
+            if(statusCode == 200) {
+                self.performSegue(withIdentifier: "UserListVC", sender: self)
+                self.loading.stopAnimating()
+                return
+            }
             self.loading.stopAnimating()
         }
-
-        
     }
     
     @IBAction func forgottenPasswordAction(_ sender: Any) {
@@ -63,8 +69,8 @@ class ViewController: UIViewController {
         userMailTextBox.font = UIFont.boldSystemFont(ofSize: 20.0)
         userMailTextBox.autocapitalizationType = UITextAutocapitalizationType.allCharacters
         userMailTextBox.alpha = 0.6
+        userMailTextBox.text = "eve.holt@reqres.in"
         userMailTextBox.clipsToBounds = true
-        
         // Configuration password text field
         passwordTextField.placeholder = "Contraseña"
         passwordTextField.textContentType = UITextContentType.password
@@ -72,6 +78,7 @@ class ViewController: UIViewController {
         passwordTextField.textColor = UIColor.brown
         passwordTextField.font = UIFont.boldSystemFont(ofSize: 20.0)
         passwordTextField.alpha = 0.6
+        passwordTextField.text = "cityslica"
         passwordTextField.isSecureTextEntry = true
         passwordTextField.clipsToBounds = true
         
