@@ -13,7 +13,6 @@ class UserDetailViewController: UIViewController {
     // MARK: - Variables
     var user: User?
     
-    
     // MARK: - Outlets
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var staticNameLabel: UILabel!
@@ -28,9 +27,6 @@ class UserDetailViewController: UIViewController {
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        
         navBarModal.topItem?.title = user!.name
         setupItemsView()
     }

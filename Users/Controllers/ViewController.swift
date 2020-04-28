@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     // MARCK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         setupItemsView()
     }
 
