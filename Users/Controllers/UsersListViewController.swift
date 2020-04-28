@@ -14,12 +14,12 @@ class UsersListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
         
     // MARK: - Constants
-    private let user0 = User(id: 0, name: "Fernamndo", surname: "Suarez Ramírez", emailAddress: "fernando.suarez@gmail.com" , userPhoto: "user0")
-    private let user1 = User(id: 1, name: "Juan", surname: "Fernández Torres", emailAddress: "juan.fernandez@gmail.com", userPhoto: "user1")
-    private let user2 = User(id: 2, name: "Belén", surname: "Fuentes Casales", emailAddress: "belen.fuentes@gmail.com", userPhoto: "user2")
-    private let user3 = User(id: 3, name: "Alejandro", surname: "Tolentino Garcia", emailAddress: "alejandro.tolentino@gmail.com", userPhoto: "user3")
-    private let user4 = User(id: 4, name: "Sandra", surname: "López Rodríguez", emailAddress: "sandra.lopez@gmail.com", userPhoto: "user4")
-    private let user5 = User(id: 5, name: "Alexander", surname: "Juarez Ruiz", emailAddress: "alexander.juarez@gmail.com", userPhoto: "user5")
+    // private let user0 = User(id: 0, name: "Fernamndo", surname: "Suarez Ramírez", emailAddress: "fernando.suarez@gmail.com" , userPhoto: "user0")
+    // private let user1 = User(id: 1, name: "Juan", surname: "Fernández Torres", emailAddress: "juan.fernandez@gmail.com", userPhoto: "user1")
+    // private let user2 = User(id: 2, name: "Belén", surname: "Fuentes Casales", emailAddress: "belen.fuentes@gmail.com", userPhoto: "user2")
+    // private let user3 = User(id: 3, name: "Alejandro", surname: "Tolentino Garcia", emailAddress: "alejandro.tolentino@gmail.com", userPhoto: "user3")
+    // private let user4 = User(id: 4, name: "Sandra", surname: "López Rodríguez", emailAddress: "sandra.lopez@gmail.com", userPhoto: "user4")
+    // private let user5 = User(id: 5, name: "Alexander", surname: "Juarez Ruiz", emailAddress: "alexander.juarez@gmail.com", userPhoto: "user5")
     
     // MARK: - Variables
     private var users: [User] = []
@@ -29,33 +29,24 @@ class UsersListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let networkmanager = NetworkManager()
-        networkmanager.getAllUsers() { (userResponse) in
-            print("Users: \(userResponse)")
-            
-        }
-        
         // Do any additional setup after loading the view.
+        
+        let networkManager = NetworkManager()
+        networkManager.getAllUsers() { (usersArraY) in
+            self.users = usersArraY!
+        }
+        view.backgroundColor = .brown
+        tableView.backgroundColor = .brown
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("viewDidLoad \(self.users.count)")
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         tableView.delegate = self
-        view.backgroundColor = .brown
-        tableView.backgroundColor = .brown
-        initUsers()
-
     }
-    
-    private func initUsers() {
-        users.append(user0)
-        users.append(user1)
-        users.append(user2)
-        users.append(user3)
-        users.append(user4)
-        users.append(user5)
-    }
-    
-
 }
 
 // MARK: - Extensions

@@ -21,7 +21,8 @@ class NetworkManager: NSObject {
         
     }
     
-    func getAllUsers(completion: @escaping (UserResponse?) -> Void) -> Void {
+    func getAllUsers(completion: @escaping ([User]?) -> Void) -> Void {
+        var userArray: [User] = []
         urlString = "\(urlString)/api/users?page=2"
         
         AF.request(urlString, method: .get, encoding: JSONEncoding.default).response { response in
@@ -30,7 +31,12 @@ class NetworkManager: NSObject {
             do {
                 let decoder = JSONDecoder()
                 let usersResponse = try decoder.decode(UserResponse.self, from: data)
-                completion(usersResponse)
+
+                for users in usersResponse.data {
+                    let user = User(id: users.id, name: users.firstName, surname: users.lastName, emailAddress: users.email, userPhoto: users.avatar)
+                    userArray.append(user)
+                }
+                completion(userArray)
             } catch let error {
                 print(error)
                 completion(nil)
