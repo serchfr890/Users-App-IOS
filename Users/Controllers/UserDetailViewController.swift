@@ -38,7 +38,11 @@ class UserDetailViewController: UIViewController {
         view.backgroundColor = UIColor.brown
         
         // Configure Image User
-        userImage.image = UIImage(named: user!.userPhoto)
+        let imageUrlString = user!.userPhoto
+        let imageUrl = URL(string: imageUrlString)
+        let imageData = try! Data(contentsOf: imageUrl!)
+        userImage.image = UIImage(data: imageData)
+        
         userImage.clipsToBounds = true
         
         // Configure staticNameLabel
