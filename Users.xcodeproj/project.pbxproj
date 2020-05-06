@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C5A706E24634BCB0006B057 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5A706D24634BCB0006B057 /* Utils.swift */; };
 		7C5D16E424576217002631A4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D16E324576217002631A4 /* NetworkManager.swift */; };
 		7C5D16EB2457840D002631A4 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D16EA2457840D002631A4 /* UserResponse.swift */; };
 		7C8F556224575A3E007CEC72 /* Pods_Users.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205B26A0E2296380D2E310E8 /* Pods_Users.framework */; };
@@ -61,6 +62,7 @@
 		01C887EC538E5D8E9EDFFBF0 /* Pods-Users-UsersUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Users-UsersUITests.release.xcconfig"; path = "Target Support Files/Pods-Users-UsersUITests/Pods-Users-UsersUITests.release.xcconfig"; sourceTree = "<group>"; };
 		205B26A0E2296380D2E310E8 /* Pods_Users.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Users.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56920562C007521427C2564B /* Pods-Users.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Users.release.xcconfig"; path = "Target Support Files/Pods-Users/Pods-Users.release.xcconfig"; sourceTree = "<group>"; };
+		7C5A706D24634BCB0006B057 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7C5D16E324576217002631A4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7C5D16EA2457840D002631A4 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		7CF0E3A724539CF800509E7B /* Users.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Users.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +237,7 @@
 		7CF0E3DD24539D3200509E7B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7C5A706D24634BCB0006B057 /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 			files = (
 				7CF0E3E324539E6E00509E7B /* ViewController.swift in Sources */,
 				7CF0E3E72453C45600509E7B /* UserDetailViewController.swift in Sources */,
+				7C5A706E24634BCB0006B057 /* Utils.swift in Sources */,
 				7CF0E3EC2454AB2800509E7B /* User.swift in Sources */,
 				7C5D16EB2457840D002631A4 /* UserResponse.swift in Sources */,
 				7C5D16E424576217002631A4 /* NetworkManager.swift in Sources */,

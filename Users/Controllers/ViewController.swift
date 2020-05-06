@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var utils = Utils()
+
     // MARCK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,17 +43,17 @@ class ViewController: UIViewController {
                 self.loading.stopAnimating()
                 return
             }
+            self.utils.alertMessage(title: "No se pudo iniciar sesión!!", message: "Las credenciales son inválidas", controller: self)
             self.loading.stopAnimating()
         }
     }
     
     @IBAction func forgottenPasswordAction(_ sender: Any) {
-        print("Función no implementada")
+        utils.alertMessage(title: "", message: "Funcionalidad no implementada", controller: self)
     }
     
     // MARK: - Functions
     private func setupItemsView() {
-        
         // Configuration header label
         headerLabel.text = "Bienvenido"
         headerLabel.textAlignment = NSTextAlignment.center
@@ -66,10 +68,10 @@ class ViewController: UIViewController {
         userMailTextBox.returnKeyType = UIReturnKeyType.continue
         userMailTextBox.textColor = UIColor.brown
         userMailTextBox.font = UIFont.boldSystemFont(ofSize: 20.0)
-        userMailTextBox.autocapitalizationType = UITextAutocapitalizationType.allCharacters
         userMailTextBox.alpha = 0.6
         userMailTextBox.text = "eve.holt@reqres.in"
         userMailTextBox.clipsToBounds = true
+        
         // Configuration password text field
         passwordTextField.placeholder = "Contraseña"
         passwordTextField.textContentType = UITextContentType.password
@@ -90,7 +92,7 @@ class ViewController: UIViewController {
         initSessionButton.clipsToBounds = true
         
         // Configure forgotten password button
-        forgottenPasswordButton.setTitle("¿Olvidaste tu Contraseña", for: .normal)
+        forgottenPasswordButton.setTitle("¿Olvidaste tu contraseña?", for: .normal)
         forgottenPasswordButton.setTitleColor(UIColor.white, for: .normal)
         forgottenPasswordButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
         forgottenPasswordButton.clipsToBounds = true
