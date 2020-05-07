@@ -42,23 +42,22 @@ class UserDetailViewController: UIViewController {
         let imageUrl = URL(string: imageUrlString)
         let imageData = try! Data(contentsOf: imageUrl!)
         userImage.image = UIImage(data: imageData)
-        
         userImage.clipsToBounds = true
         
         // Configure staticNameLabel
-        setupStaticsLabels(staticLabel: staticNameLabel, description: "Nombre:")
+        setupStaticsLabels(staticLabel: staticNameLabel, description: DETAIL_FIELDS_NAMES.NAME)
         
         // Configure nameLabel
         setupLabels(label: nameLabel, description: user!.name)
         
         // Configure staticSurname
-        setupStaticsLabels(staticLabel: staticSurnameLabel, description: "Apellidos:")
+        setupStaticsLabels(staticLabel: staticSurnameLabel, description: DETAIL_FIELDS_NAMES.SURNAME)
         
         // Configure surmaneLabel
         setupLabels(label: surnameLabel, description: user!.surname)
         
         // Configure staticEmailAddressLabel
-        setupStaticsLabels(staticLabel: staticEmailAddressLabel, description: "Coreeo Electrónico:")
+        setupStaticsLabels(staticLabel: staticEmailAddressLabel, description: DETAIL_FIELDS_NAMES.EMAIL)
         
         // Configure emailAddresLabel
         setupLabels(label: emailAddressLabel, description: user!.emailAddress)

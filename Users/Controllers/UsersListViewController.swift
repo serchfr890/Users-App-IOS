@@ -10,6 +10,8 @@ import UIKit
 
 class UsersListViewController: UIViewController {
     
+    var networkManager = NetworkManager()
+    
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,13 +19,10 @@ class UsersListViewController: UIViewController {
     private var users: [User] = []
     private var userSelected: User?
     
-    // MARK: - Functions
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        
-        let networkManager = NetworkManager()
+        self.navigationController?.isNavigationBarHidden = true
         networkManager.getAllUsers() { (usersArraY) in
             self.users = usersArraY!
         }
@@ -47,10 +46,10 @@ extension UsersListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "myCell")
+        var cell = tableView.dequeueReusableCell(withIdentifier: USER_LIST_VC_CONTANTS.TABLE_IDENTIFIER)
         
         if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "myCell")
+            cell = UITableViewCell(style: .default, reuseIdentifier: USER_LIST_VC_CONTANTS.TABLE_IDENTIFIER)
             cell?.textLabel?.font = UIFont.systemFont(ofSize: 20.0)
             cell?.accessoryType = .disclosureIndicator
             cell?.backgroundColor = .brown
@@ -58,14 +57,12 @@ extension UsersListViewController: UITableViewDataSource {
         cell!.textLabel?.text = users[indexPath.row].name
         return cell!
     }
-    
-    
 }
 
 extension UsersListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         userSelected = users[indexPath.row]
-        performSegue(withIdentifier: "UserDetailVC", sender: self)
+        performSegue(withIdentifier: VIEWS_CONTROLLER_IDENTIFIER.USER_DETAIL, sender: self)
         
     }
     
