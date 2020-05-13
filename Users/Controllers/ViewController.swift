@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-
+        userMailTextBox.delegate = self
+        passwordTextField.delegate = self
     
         setupItemsView()
     }
@@ -29,26 +30,41 @@ class ViewController: UIViewController {
     @IBOutlet weak var initSessionButton: UIButton!
     @IBOutlet weak var forgottenPasswordButton: UIButton!
     @IBOutlet weak var loading: UIActivityIndicatorView!
+    @IBOutlet weak var errorEmailLabel: UILabel!
+    @IBOutlet weak var errorPasswordLabel: UILabel!
     
     // MARK: - Actions Buttons
     @IBAction func initSessionAction(_ sender: UIButton) {
-        loading.color = .white
-        loading.startAnimating()
-        loading.hidesWhenStopped = true
-    
-        let userMail = userMailTextBox.text!
-        let password = passwordTextField.text!
+        startLoadingAnimation()
         
-        networkManager.doLogin(emailAddress: userMail, password: password) {
-            (statusCode) in
-            if(statusCode == 200) {
-                self.performSegue(withIdentifier: VIEWS_CONTROLLER_IDENTIFIER.USER_LIST, sender: self)
+        if (userMailTextBox.hasText && passwordTextField.hasText) {
+            let userMail = userMailTextBox.text!
+            let password = passwordTextField.text!
+            
+            networkManager.doLogin(emailAddress: userMail, password: password) {
+                (statusCode) in
+                if(statusCode == 200) {
+                    self.performSegue(withIdentifier: VIEWS_CONTROLLER_IDENTIFIER.USER_LIST, sender: self)
+                    self.loading.stopAnimating()
+                    return
+                }
+                self.utils.alertMessage(title: COMMON_MESSAGES.SESSION_FAILED, message: COMMON_MESSAGES.INVALID_CREDENTIALS, controller: self)
                 self.loading.stopAnimating()
-                return
             }
-            self.utils.alertMessage(title: COMMON_MESSAGES.SESSION_FAILED, message: COMMON_MESSAGES.INVALID_CREDENTIALS, controller: self)
-            self.loading.stopAnimating()
+            
         }
+        
+        if (!userMailTextBox.hasText) {
+            errorEmailLabel.text = "Ingresar un correo electrónico válido"
+            errorEmailLabel.isHidden = false
+            
+        }
+        
+        if (!passwordTextField.hasText) {
+            errorPasswordLabel.text = "Ingrsar contraseña"
+            errorPasswordLabel.isHidden = false
+        }
+                
     }
     
     @IBAction func forgottenPasswordAction(_ sender: Any) {
@@ -73,6 +89,7 @@ class ViewController: UIViewController {
         userMailTextBox.font = UIFont.boldSystemFont(ofSize: 20.0)
         userMailTextBox.alpha = 0.6
         userMailTextBox.text = LOGIN_FIELD_NAMES.EMAIL_MOCK_VALUE
+        userMailTextBox.tag = 0
         userMailTextBox.clipsToBounds = true
         
         // Configuration password text field
@@ -83,6 +100,7 @@ class ViewController: UIViewController {
         passwordTextField.font = UIFont.boldSystemFont(ofSize: 20.0)
         passwordTextField.alpha = 0.6
         passwordTextField.text = LOGIN_FIELD_NAMES.PASSWORD_MOCK_VALUE
+        passwordTextField.tag = 1
         passwordTextField.isSecureTextEntry = true
         passwordTextField.clipsToBounds = true
         
@@ -99,8 +117,59 @@ class ViewController: UIViewController {
         forgottenPasswordButton.setTitleColor(UIColor.white, for: .normal)
         forgottenPasswordButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
         forgottenPasswordButton.clipsToBounds = true
+        
+        // Configuration errorLabel
+        errorEmailLabel.isHidden = true
+        errorEmailLabel.text = "Hola"
+        errorEmailLabel.textColor = .red
+        errorEmailLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
+        errorEmailLabel.clipsToBounds = true
+        
+        // Configuration errorPasswordLabel
+        errorPasswordLabel.isHidden = true
+        errorPasswordLabel.text = "Holi 2"
+        errorPasswordLabel.textColor = .red
+        errorPasswordLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
+        errorPasswordLabel.clipsToBounds = true
+        
+    }
+    
+    func startLoadingAnimation() {
+        loading.color = .white
+        loading.startAnimating()
+        loading.hidesWhenStopped = true
     }
     
     
 }
 
+extension UIViewController: UITextFieldDelegate {
+    public func textFieldDidChangeSelection(_ textField: UITextField) {
+        switch textField.tag {
+        case 0:
+            let retrunvAlue = true
+            let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
+            do {
+                let regex = try NSRegularExpression(pattern: emailRegEx)
+                let nsString = textField.text! as NSString
+                let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
+                print("Result: \(result)")
+                if (!(result.count == 0)) {
+                    textField.layer.borderColor = UIColor.green.cgColor
+                } else {
+                    textField.layer.borderColor = UIColor.red.cgColor
+                }
+                
+            } catch let error as NSError {
+                print("invalid regex: \(error.localizedDescription)")
+            }
+            break
+            
+        case 1:
+            
+            break
+        default:
+            print("")
+        }
+    }
+}
