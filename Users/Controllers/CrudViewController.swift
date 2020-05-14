@@ -33,7 +33,8 @@ class CrudViewController: UIViewController {
         super.viewDidAppear(animated)
         tableView.dataSource = self
         tableView.delegate = self
-        //tableView.register(UINib(nibName: "MotocycleTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        tableView.register(UINib(nibName: "MotocycleTableViewCell", bundle: nil), forCellReuseIdentifier: "motocycleCell")
+
     }
 
     /*
@@ -56,17 +57,21 @@ extension CrudViewController: UITableViewDataSource {
         return motocycles.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "mycell")
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "mycell")
-            cell?.textLabel?.font = UIFont.systemFont(ofSize: 20)
-            cell?.accessoryType = .disclosureIndicator
-        }
-        cell?.textLabel?.text = motocycles[indexPath.row]
+//        var cell = tableView.dequeueReusableCell(withIdentifier: "mycell")
+//        if cell == nil {
+//            cell = UITableViewCell(style: .default, reuseIdentifier: "mycell")
+//            cell?.textLabel?.font = UIFont.systemFont(ofSize: 20)
+//            cell?.accessoryType = .disclosureIndicator
+//        }
+//        cell?.textLabel?.text = motocycles[indexPath.row]
         
         
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as?  MotocycleTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "motocycleCell", for: indexPath) as?  MotocycleTableViewCell
         
         
         return cell!

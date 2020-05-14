@@ -14,6 +14,8 @@
 		7C8F556324575A3E007CEC72 /* Pods_Users.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 205B26A0E2296380D2E310E8 /* Pods_Users.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7CEB6BC0246CDA910033041F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB6BBF246CDA910033041F /* MainTabBarController.swift */; };
 		7CEB6BC2246CDAEB0033041F /* CrudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB6BC1246CDAEB0033041F /* CrudViewController.swift */; };
+		7CEB6BCA246DA6450033041F /* MotocycleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CEB6BC8246DA6450033041F /* MotocycleTableViewCell.xib */; };
+		7CEB6BCC246DA6BE0033041F /* MotocycleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB6BCB246DA6BE0033041F /* MotocycleTableViewCell.swift */; };
 		7CF0E3AB24539CF800509E7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF0E3AA24539CF800509E7B /* AppDelegate.swift */; };
 		7CF0E3AD24539CF800509E7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF0E3AC24539CF800509E7B /* SceneDelegate.swift */; };
 		7CF0E3B424539CF900509E7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CF0E3B324539CF900509E7B /* Assets.xcassets */; };
@@ -69,6 +71,8 @@
 		7C5D16EA2457840D002631A4 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		7CEB6BBF246CDA910033041F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		7CEB6BC1246CDAEB0033041F /* CrudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudViewController.swift; sourceTree = "<group>"; };
+		7CEB6BC8246DA6450033041F /* MotocycleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotocycleTableViewCell.xib; sourceTree = "<group>"; };
+		7CEB6BCB246DA6BE0033041F /* MotocycleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotocycleTableViewCell.swift; path = Users/Views/MotocycleTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		7CF0E3A724539CF800509E7B /* Users.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Users.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF0E3AA24539CF800509E7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CF0E3AC24539CF800509E7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				7CF0E3E82453CF7400509E7B /* Main.storyboard */,
+				7CEB6BC8246DA6450033041F /* MotocycleTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 		7CF0E3DC24539D2500509E7B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7CEB6BCB246DA6BE0033041F /* MotocycleTableViewCell.swift */,
 				7CF0E3E224539E6E00509E7B /* ViewController.swift */,
 				7CF0E3E42453C42F00509E7B /* UsersListViewController.swift */,
 				7CF0E3E62453C45600509E7B /* UserDetailViewController.swift */,
@@ -368,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CF0E3EA2453CF7400509E7B /* Main.storyboard in Resources */,
+				7CEB6BCA246DA6450033041F /* MotocycleTableViewCell.xib in Resources */,
 				7CF0E3B724539CF900509E7B /* LaunchScreen.storyboard in Resources */,
 				7CF0E3B424539CF900509E7B /* Assets.xcassets in Resources */,
 			);
@@ -519,6 +526,7 @@
 				7CF0E3E72453C45600509E7B /* UserDetailViewController.swift in Sources */,
 				7CEB6BC0246CDA910033041F /* MainTabBarController.swift in Sources */,
 				7C5A706E24634BCB0006B057 /* Utils.swift in Sources */,
+				7CEB6BCC246DA6BE0033041F /* MotocycleTableViewCell.swift in Sources */,
 				7CF0E3EC2454AB2800509E7B /* User.swift in Sources */,
 				7C5D16EB2457840D002631A4 /* UserResponse.swift in Sources */,
 				7C5D16E424576217002631A4 /* NetworkManager.swift in Sources */,
