@@ -118,6 +118,7 @@ class ViewController: UIViewController {
         userMailTextBox.font = UIFont.boldSystemFont(ofSize: 20.0)
         userMailTextBox.alpha = 0.6
         userMailTextBox.tag = 0
+        userMailTextBox.text = LOGIN_FIELD_NAMES.EMAIL_MOCK_VALUE
         userMailTextBox.clipsToBounds = true
         
         // Configuration password text field
@@ -129,6 +130,7 @@ class ViewController: UIViewController {
         passwordTextField.alpha = 0.6
         passwordTextField.tag = 1
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.text = LOGIN_FIELD_NAMES.PASSWORD_MOCK_VALUE
         passwordTextField.clipsToBounds = true
         
         // Configuration InitSession Button

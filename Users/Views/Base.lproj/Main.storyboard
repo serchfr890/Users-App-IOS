@@ -180,16 +180,31 @@
         <!--Item-->
         <scene sceneID="8VS-my-BCR">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BjJ-Fy-uU2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="kn1-lZ-4RB" customClass="CrudViewController" customModule="Users" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EHo-rt-Q8b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OPa-Vc-qNC">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="E15-cq-ZEJ" firstAttribute="bottom" secondItem="OPa-Vc-qNC" secondAttribute="bottom" id="8JJ-52-oPZ"/>
+                            <constraint firstItem="E15-cq-ZEJ" firstAttribute="trailing" secondItem="OPa-Vc-qNC" secondAttribute="trailing" id="a5s-Kt-BLL"/>
+                            <constraint firstItem="OPa-Vc-qNC" firstAttribute="top" secondItem="E15-cq-ZEJ" secondAttribute="top" id="gca-DY-sxr"/>
+                            <constraint firstItem="OPa-Vc-qNC" firstAttribute="leading" secondItem="E15-cq-ZEJ" secondAttribute="leading" id="vK0-gK-XQE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="E15-cq-ZEJ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="PYw-i4-bw1"/>
+                    <connections>
+                        <outlet property="tableView" destination="OPa-Vc-qNC" id="rv0-x0-xxf"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BjJ-Fy-uU2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3022" y="483"/>
         </scene>
