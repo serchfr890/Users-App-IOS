@@ -281,6 +281,7 @@
 				7CF0E3B924539CF900509E7B /* Sources */,
 				7CF0E3BA24539CF900509E7B /* Frameworks */,
 				7CF0E3BB24539CF900509E7B /* Resources */,
+				87C598F1C89D83C928840E6E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -415,6 +416,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Users/Pods-Users-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87C598F1C89D83C928840E6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UsersTests/Pods-UsersTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UsersTests/Pods-UsersTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UsersTests/Pods-UsersTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8B7CBE714E488891D7D9E83B /* [CP] Check Pods Manifest.lock */ = {

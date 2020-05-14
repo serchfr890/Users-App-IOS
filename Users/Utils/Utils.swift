@@ -38,6 +38,9 @@ struct COMMON_MESSAGES {
     static let INIT_SESSION = "Iniciar sesión"
     static let FORGOTTEN_PASSWORD = "¿Olvidaste tu contraseña?"
     static let WELCOME = "Bienvenido"
+    static let INVALID_MAIL = "Ingresar un correo electrónico válido"
+    static let INVALID_PASSWORD = "La contraseña debe tener al menos 8 caractéres"
+    static let INVALID_REGEX = "Invalid regex: "
 }
 
 struct LOGIN_FIELD_NAMES {
@@ -51,4 +54,8 @@ struct DETAIL_FIELDS_NAMES {
     static let NAME = "Nombre:"
     static let SURNAME = "Apellidos:"
     static let EMAIL = "Correo electrónico:"
+}
+
+struct REGEX {
+    static let MAIL = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
 }
