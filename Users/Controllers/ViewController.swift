@@ -86,7 +86,7 @@ class ViewController: UIViewController {
         networkManager.doLogin(emailAddress: userMail, password: password) {
             (statusCode) in
             if((statusCode == 200) || (statusCode == 201)) {
-                self.performSegue(withIdentifier: VIEWS_CONTROLLER_IDENTIFIER.USER_LIST, sender: self)
+                self.performSegue(withIdentifier: "tab_vc", sender: self)
                 self.loading.stopAnimating()
                 return
             }
