@@ -10,6 +10,12 @@ import UIKit
 
 class UsersListViewController: UIViewController {
     
+    // MARK: - Initializers
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        tabBarItem = UITabBarItem(title: TAB_BAR_ITEMS.TITLE_COMTROLLER_1, image: UIImage(systemName: TAB_BAR_ITEMS.ICON_CONTROLLER_1), selectedImage: UIImage(systemName: TAB_BAR_ITEMS.ICON_CONTROLLER_1))
+    }
+    
     var networkManager = NetworkManager()
     
     // MARK: - Outlets
@@ -22,6 +28,7 @@ class UsersListViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.isNavigationBarHidden = true
         networkManager.getAllUsers() { (usersArraY) in
             self.users = usersArraY!

@@ -10,9 +10,25 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("se cargo el controlador del tab")
+        
+
+        
+//        let item = UITabBarItem()
+//        item.title = "Home"
+//        item.image = UIImage(named: "home_icon")
+//        
+//        let homeVC = UserDetailViewController()
+//        homeVC.tabBarItem = item
+//        
+//        let tabBarController = UITabBarController()
+//        tabBarController.viewControllers = [homeVC]
+        
         // Do any additional setup after loading the view.
     }
     

@@ -9,11 +9,15 @@
 import UIKit
 
 class CrudViewController: UIViewController {
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        tabBarItem = UITabBarItem(title: TAB_BAR_ITEMS.TITLE_CONTROLLER_2, image: UIImage(systemName: TAB_BAR_ITEMS.ICON_CONTROLLER_2), selectedImage: UIImage(systemName: TAB_BAR_ITEMS.ICON_CONTROLLER_2))
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Se cargó el controlador del CRUD")
-        // Do any additional setup after loading the view.
+
     }
     
 

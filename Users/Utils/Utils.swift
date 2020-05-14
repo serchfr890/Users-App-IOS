@@ -60,3 +60,10 @@ struct DETAIL_FIELDS_NAMES {
 struct REGEX {
     static let MAIL = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
 }
+
+struct TAB_BAR_ITEMS {
+    static let TITLE_COMTROLLER_1 = "Lista de Usuarios"
+    static let TITLE_CONTROLLER_2 = "CRUD"
+    static let ICON_CONTROLLER_1 = "person.3.fill"
+    static let ICON_CONTROLLER_2 = "pencil"
+}

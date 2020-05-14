@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fonde" translatesAutoresizingMaskIntoConstraints="NO" id="NTI-hX-7gI">
-                                <rect key="frame" x="0.0" y="0.0" width="414.00000000000011" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dI2-6Y-jQZ">
                                 <rect key="frame" x="16" y="148" width="382" height="40"/>
@@ -168,6 +168,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="tabBar" destination="GZg-lz-jDX" id="LtO-Ec-rN0"/>
                         <segue destination="8zH-Bz-2Js" kind="relationship" relationship="viewControllers" id="Sho-CY-hea"/>
                         <segue destination="kn1-lZ-4RB" kind="relationship" relationship="viewControllers" id="OiT-Xa-qXG"/>
                     </connections>
