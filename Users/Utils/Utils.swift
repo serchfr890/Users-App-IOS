@@ -64,6 +64,20 @@ struct REGEX {
 struct TAB_BAR_ITEMS {
     static let TITLE_COMTROLLER_1 = "Lista de Usuarios"
     static let TITLE_CONTROLLER_2 = "CRUD"
-    static let ICON_CONTROLLER_1 = "person.3.fill"
-    static let ICON_CONTROLLER_2 = "pencil"
+}
+
+struct MOTOCYCLE_ATTRIBUTES {
+    static let NAME = "Nombre: "
+    static let BRAND = "Marca: "
+    static let DISPLACEMENT = "Cilindrada: "
+    static let MAXIMUN_SPEED = "Velocidad Máxima: "
+    static let FINAL_TRANSSMITION = "Velocidades: "
+    static let FUEL_CAPACITY = "Cap de combustible: "
+    static let MAXIMUN_POWER = "Potencia Máxima: "
+}
+
+struct ICON_SYSTEM_NAMES {
+    static let TRASH = "trash"
+    static let PENCIL = "pencil"
+    static let PERSON_3_FILL = "person.3.fill"
 }

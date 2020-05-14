@@ -35,13 +35,13 @@ class MotocycleTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setupLabel(label: nameLabel, description: "Nombre: ")
-        setupLabel(label: brandLabel, description: "Marca: ")
-        setupLabel(label: displacementLabel, description: "Cilindrada: ")
-        setupLabel(label: maximumSpeedLabel, description: "Velocidad Máxima")
-        setupLabel(label: finalTranssmitionLabel, description: "Velocidades: ")
-        setupLabel(label: fuelCapacityLabel, description: "Cap de combustible: ")
-        setupLabel(label: maximunPowerLabel, description: "Potencia Máxima: ")
+        setupLabel(label: nameLabel, description: MOTOCYCLE_ATTRIBUTES.NAME)
+        setupLabel(label: brandLabel, description: MOTOCYCLE_ATTRIBUTES.BRAND)
+        setupLabel(label: displacementLabel, description: MOTOCYCLE_ATTRIBUTES.DISPLACEMENT)
+        setupLabel(label: maximumSpeedLabel, description: MOTOCYCLE_ATTRIBUTES.MAXIMUN_SPEED)
+        setupLabel(label: finalTranssmitionLabel, description: MOTOCYCLE_ATTRIBUTES.FINAL_TRANSSMITION)
+        setupLabel(label: fuelCapacityLabel, description: MOTOCYCLE_ATTRIBUTES.FUEL_CAPACITY)
+        setupLabel(label: maximunPowerLabel, description: MOTOCYCLE_ATTRIBUTES.MAXIMUN_POWER)
         
         setupDescriptionLabel(label: nameDescriptionLabel)
         setupDescriptionLabel(label: brandDescriptionLabel)
@@ -51,18 +51,15 @@ class MotocycleTableViewCell: UITableViewCell {
         setupDescriptionLabel(label: fuelCapacityDescriptionLabel)
         setupDescriptionLabel(label: maximunPowerDescriptionLabel)
         
-        setupButton(button: deleteButton, iconSystemName: "trash", iconColor: .red)
-        setupButton(button: editButton, iconSystemName: "pencil", iconColor: .blue)
-
-        
+        setupButton(button: deleteButton, iconSystemName: ICON_SYSTEM_NAMES.TRASH, iconColor: .red)
+        setupButton(button: editButton, iconSystemName: ICON_SYSTEM_NAMES.PENCIL, iconColor: .blue)
         
     }
 
     @IBOutlet weak var hh: UIView!
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
     
     

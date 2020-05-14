@@ -13,7 +13,7 @@ class UsersListViewController: UIViewController {
     // MARK: - Initializers
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        tabBarItem = UITabBarItem(title: TAB_BAR_ITEMS.TITLE_COMTROLLER_1, image: UIImage(systemName: TAB_BAR_ITEMS.ICON_CONTROLLER_1), selectedImage: UIImage(systemName: TAB_BAR_ITEMS.ICON_CONTROLLER_1))
+        tabBarItem = UITabBarItem(title: TAB_BAR_ITEMS.TITLE_COMTROLLER_1, image: UIImage(systemName: ICON_SYSTEM_NAMES.PERSON_3_FILL), selectedImage: UIImage(systemName: ICON_SYSTEM_NAMES.PERSON_3_FILL))
     }
     
     var networkManager = NetworkManager()

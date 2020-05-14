@@ -19,7 +19,7 @@ class CrudViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        tabBarItem = UITabBarItem(title: TAB_BAR_ITEMS.TITLE_CONTROLLER_2, image: UIImage(systemName: TAB_BAR_ITEMS.ICON_CONTROLLER_2), selectedImage: UIImage(systemName: TAB_BAR_ITEMS.ICON_CONTROLLER_2))
+        tabBarItem = UITabBarItem(title: TAB_BAR_ITEMS.TITLE_CONTROLLER_2, image: UIImage(systemName: ICON_SYSTEM_NAMES.PENCIL), selectedImage: UIImage(systemName: ICON_SYSTEM_NAMES.PENCIL))
     }
 
     // MARK: - Life Cycles
