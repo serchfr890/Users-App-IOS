@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fonde" translatesAutoresizingMaskIntoConstraints="NO" id="NTI-hX-7gI">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414.00000000000011" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dI2-6Y-jQZ">
                                 <rect key="frame" x="16" y="148" width="382" height="40"/>
@@ -132,7 +132,7 @@
                         <outlet property="loading" destination="acS-Dc-AvD" id="8oD-tQ-9ZS"/>
                         <outlet property="passwordTextField" destination="gsg-jL-KeJ" id="x0K-Yc-dVn"/>
                         <outlet property="userMailTextBox" destination="ANZ-f3-WdA" id="YDi-rC-SEh"/>
-                        <segue destination="ddd-AE-MiQ" kind="show" identifier="tab_vc" id="kpY-gG-LMU"/>
+                        <segue destination="ddd-AE-MiQ" kind="show" identifier="Tab_Bar_VC" id="kpY-gG-LMU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -28,6 +28,7 @@ struct USER_LIST_VC_CONTANTS {
 struct VIEWS_CONTROLLER_IDENTIFIER {
     static let USER_DETAIL = "UserDetailVC"
     static let USER_LIST = "UserListVC"
+    static let TAB_BAR = "Tab_Bar_VC"
 }
 
 struct COMMON_MESSAGES {
