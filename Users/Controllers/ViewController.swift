@@ -131,7 +131,7 @@ class ViewController: UIViewController {
         passwordTextField.isSecureTextEntry = true
         passwordTextField.clipsToBounds = true
         
-        // Configure InitSession Button
+        // Configuration InitSession Button
         initSessionButton.setTitle(COMMON_MESSAGES.INIT_SESSION, for: .normal)
         initSessionButton.setTitleColor(UIColor.white, for: .normal)
         initSessionButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
@@ -140,7 +140,7 @@ class ViewController: UIViewController {
         initSessionButton.backgroundColor = UIColor.lightGray
         initSessionButton.clipsToBounds = true
         
-        // Configure forgotten password button
+        // Configuration forgotten password button
         forgottenPasswordButton.setTitle(COMMON_MESSAGES.FORGOTTEN_PASSWORD, for: .normal)
         forgottenPasswordButton.setTitleColor(UIColor.white, for: .normal)
         forgottenPasswordButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
@@ -160,11 +160,15 @@ class ViewController: UIViewController {
         errorPasswordLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
         errorPasswordLabel.clipsToBounds = true
         
+        // Configuration loading
+        loading.color = .white
+        loading.isHidden = true
+        
     }
     
     // Loading animation starts
     func startLoadingAnimation() {
-        loading.color = .white
+        loading.isHidden = false
         loading.startAnimating()
         loading.hidesWhenStopped = true
     }
