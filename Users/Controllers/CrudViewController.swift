@@ -16,6 +16,7 @@ class CrudViewController: UIViewController {
     // MARK: -Variables
         var networkManager = NetworkManager()
     let motocycles = ["Vort-X 300","Dominar 400","Pulsar 200","Yamaha 150"]
+    var motocycle: [MotorcycleResponse] = []
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -25,28 +26,27 @@ class CrudViewController: UIViewController {
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        networkManager.getAllMotocycles() {motocicles in
+            print("MOTOS: \(motocicles)")
+            self.motocycle = motocicles!
 
+            print("Motocicletas: \(self.motocycles)")
+            self.tableView.dataSource = self
+            self.tableView.delegate = self
+            self.tableView.register(UINib(nibName: "MotocycleTableViewCell", bundle: nil), forCellReuseIdentifier: "motocycleCell")
+            self.tableView.reloadData()
+        }
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(UINib(nibName: "MotocycleTableViewCell", bundle: nil), forCellReuseIdentifier: "motocycleCell")
+//        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.register(UINib(nibName: "MotocycleTableViewCell", bundle: nil), forCellReuseIdentifier: "motocycleCell")
+        //tableView.reloadData();
 
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 // MARK: - Extensions
@@ -54,7 +54,7 @@ class CrudViewController: UIViewController {
 extension CrudViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return motocycles.count
+        return motocycle.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -62,24 +62,16 @@ extension CrudViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        var cell = tableView.dequeueReusableCell(withIdentifier: "mycell")
-//        if cell == nil {
-//            cell = UITableViewCell(style: .default, reuseIdentifier: "mycell")
-//            cell?.textLabel?.font = UIFont.systemFont(ofSize: 20)
-//            cell?.accessoryType = .disclosureIndicator
-//        }
-//        cell?.textLabel?.text = motocycles[indexPath.row]
-        
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "motocycleCell", for: indexPath) as?  MotocycleTableViewCell
-        
-        
+        cell?.nameDescriptionLabel.text = motocycle[indexPath.row].name
+        cell?.brandDescriptionLabel.text = motocycle[indexPath.row].brand
+        cell?.displacementDescriptionLabel.text = String(motocycle[indexPath.row].displacement)
+        cell?.maximumSpeedDescriptionLabel.text = String(motocycle[indexPath.row].maximumSpeed)
+        cell?.finalTranssmitionDescriptionLabel.text = String(motocycle[indexPath.row].finalTranssmition)
+        cell?.fuelCapacityDescriptionLabel.text = String(motocycle[indexPath.row].fuelCapacity)
+        cell?.maximunPowerDescriptionLabel.text = String(motocycle[indexPath.row].maximunPower)
         return cell!
     }
-    
-    
-    
-    
 }
 
 extension CrudViewController: UITableViewDelegate {
