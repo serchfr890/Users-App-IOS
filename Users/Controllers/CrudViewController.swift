@@ -14,7 +14,7 @@ class CrudViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: -Variables
-    
+        var networkManager = NetworkManager()
     let motocycles = ["Vort-X 300","Dominar 400","Pulsar 200","Yamaha 150"]
     
     required init?(coder aDecoder: NSCoder) {

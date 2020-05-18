@@ -16,6 +16,7 @@
 		7CEB6BC2246CDAEB0033041F /* CrudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB6BC1246CDAEB0033041F /* CrudViewController.swift */; };
 		7CEB6BCA246DA6450033041F /* MotocycleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CEB6BC8246DA6450033041F /* MotocycleTableViewCell.xib */; };
 		7CEB6BCC246DA6BE0033041F /* MotocycleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB6BCB246DA6BE0033041F /* MotocycleTableViewCell.swift */; };
+		7CEB6BD2246EF0440033041F /* Motorcycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB6BD1246EF0440033041F /* Motorcycle.swift */; };
 		7CF0E3AB24539CF800509E7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF0E3AA24539CF800509E7B /* AppDelegate.swift */; };
 		7CF0E3AD24539CF800509E7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF0E3AC24539CF800509E7B /* SceneDelegate.swift */; };
 		7CF0E3B424539CF900509E7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CF0E3B324539CF900509E7B /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		7CEB6BC1246CDAEB0033041F /* CrudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudViewController.swift; sourceTree = "<group>"; };
 		7CEB6BC8246DA6450033041F /* MotocycleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotocycleTableViewCell.xib; sourceTree = "<group>"; };
 		7CEB6BCB246DA6BE0033041F /* MotocycleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotocycleTableViewCell.swift; path = Users/Views/MotocycleTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		7CEB6BD1246EF0440033041F /* Motorcycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motorcycle.swift; sourceTree = "<group>"; };
 		7CF0E3A724539CF800509E7B /* Users.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Users.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF0E3AA24539CF800509E7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CF0E3AC24539CF800509E7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				7CF0E3EB2454AB2800509E7B /* User.swift */,
 				7C5D16EA2457840D002631A4 /* UserResponse.swift */,
+				7CEB6BD1246EF0440033041F /* Motorcycle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				7CF0E3E324539E6E00509E7B /* ViewController.swift in Sources */,
 				7CEB6BC2246CDAEB0033041F /* CrudViewController.swift in Sources */,
 				7CF0E3E72453C45600509E7B /* UserDetailViewController.swift in Sources */,
+				7CEB6BD2246EF0440033041F /* Motorcycle.swift in Sources */,
 				7CEB6BC0246CDA910033041F /* MainTabBarController.swift in Sources */,
 				7C5A706E24634BCB0006B057 /* Utils.swift in Sources */,
 				7CEB6BCC246DA6BE0033041F /* MotocycleTableViewCell.swift in Sources */,
