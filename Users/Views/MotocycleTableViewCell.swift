@@ -10,6 +10,11 @@ import UIKit
 
 class MotocycleTableViewCell: UITableViewCell {
     
+    // Variables
+    
+    var rowSeleted: Int = 0
+    
+    
     // MARK: - Outlets
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -55,12 +60,6 @@ class MotocycleTableViewCell: UITableViewCell {
         setupButton(button: editButton, iconSystemName: ICON_SYSTEM_NAMES.PENCIL, iconColor: .blue)
         
     }
-
-    @IBOutlet weak var hh: UIView!
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-    }
     
     
     // MARK: - Functions
@@ -81,5 +80,6 @@ class MotocycleTableViewCell: UITableViewCell {
         button.tintColor = iconColor
         button.setTitle(COMMON_MESSAGES.EMPTY, for: .normal)
     }
+    
     
 }

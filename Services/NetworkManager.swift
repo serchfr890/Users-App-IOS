@@ -11,7 +11,7 @@ import Alamofire
 class NetworkManager: NSObject {
     
     private var urlString = "https://reqres.in"
-    private let endpointIdetifier = "28eae9f3bf2046c6947709fb39eca8c1"
+    private let endpointIdetifier = "63acbda7c36c4c4197df9cd238c05fb2"
     private let resourceCRUD = "motorcycles"
     private let crudBaseUrl = "https://crudcrud.com/api/"
     

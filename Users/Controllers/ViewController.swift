@@ -55,10 +55,6 @@ class ViewController: UIViewController {
         
         })
         subscriptionPassword?.disposed(by: disponseBagPassword)
-//
-//                let motorcycle = MotorcycleRequest(brand: "Italika", displacement: 200, finalTranssmition: 6, fuelCapacity: 12, image: "https://italika.mx/WebVisorArchivosITK/Archivo.aspx?Tipo=3&Archivo=WebPortalMexicoITK/img/Modelos/VortX/Principal/VORT-X300.png", maximumSpeed: 135, maximunPower: 32, name: "Vort-X")
-//        networkManager.createMotorcycle(motorcycle: motorcycle) {moto in print("")}
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

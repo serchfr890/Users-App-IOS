@@ -42,6 +42,9 @@ struct COMMON_MESSAGES {
     static let INVALID_MAIL = "Ingresar un correo electrónico válido"
     static let INVALID_PASSWORD = "La contraseña debe tener al menos 8 caractéres"
     static let INVALID_REGEX = "Invalid regex: "
+    static let CAN_NOT_DELETE_ITEM = "No se puede eliminar elemento"
+    static let CAN_NOT_DELETE_ITEM_TITLE = "Lo sentimos !!!"
+    static let SUCCESS_DELETE = "Se ha borrqrdo correctamente!!!"
 }
 
 struct LOGIN_FIELD_NAMES {
