@@ -15,7 +15,6 @@ struct MotorcycleResponse: Codable {
     var displacement: Int
     var finalTranssmition: Int
     var fuelCapacity: Int
-    var image:String
     var maximumSpeed: Int
     var maximunPower: Double
     var name: String
@@ -26,7 +25,6 @@ struct MotorcycleRequest: Encodable {
     var displacement: Int
     var finalTranssmition: Int
     var fuelCapacity: Int
-    var image:String
     var maximumSpeed: Int
     var maximunPower: Double
     var name: String

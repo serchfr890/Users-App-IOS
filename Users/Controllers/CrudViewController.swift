@@ -16,8 +16,11 @@ class CrudViewController: UIViewController {
     // MARK: -Variables
         var networkManager = NetworkManager()
         var utils = Utils()
+    var firtsTime = false;
+    var index: Int?
     // let motocycles = ["Vort-X 300","Dominar 400","Pulsar 200","Yamaha 150"]
     var motocycle: [MotorcycleResponse] = []
+    var motorcycleSelected: MotorcycleResponse?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -46,7 +49,21 @@ class CrudViewController: UIViewController {
 //        tableView.delegate = self
 //        tableView.register(UINib(nibName: "MotocycleTableViewCell", bundle: nil), forCellReuseIdentifier: "motocycleCell")
         //tableView.reloadData();
-
+        print("------------SE EJKECUTA CICLOP de Vida----------------------\(self.firtsTime)")
+        
+        if(firtsTime) {
+            networkManager.getAllMotocycles() {motocicles in
+                // print("MOTOS: \(motocicles)")
+                self.motocycle = motocicles!
+                self.tableView.reloadData()
+            }
+            self.utils.alertMessage(title: "Actualización exitosa", message: COMMON_MESSAGES.EMPTY, controller: self)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.firtsTime = true
     }
     
     @objc func deleteMotocycle(sender: UIButton) {
@@ -67,7 +84,10 @@ class CrudViewController: UIViewController {
     }
     
     @objc func editMotocycle(sender: UIButton) {
-        print("SE PRESIONON EL BOTON DE EDITAR \(sender.tag )")
+                self.index = sender.tag
+        print("**************************** \(self.index)")
+        performSegue(withIdentifier: "CreateOrUpdate", sender: self)
+        
     }
 }
 
@@ -103,5 +123,13 @@ extension CrudViewController: UITableViewDataSource {
 }
 
 extension CrudViewController: UITableViewDelegate {
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? CreateOrUpdateViewController {
+            destination.motorcycles =  motocycle[index!]
+            destination.type = "update"
+        }
+    }
     
 }

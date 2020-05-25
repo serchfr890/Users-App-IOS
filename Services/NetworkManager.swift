@@ -11,7 +11,7 @@ import Alamofire
 class NetworkManager: NSObject {
     
     private var urlString = "https://reqres.in"
-    private let endpointIdetifier = "63acbda7c36c4c4197df9cd238c05fb2"
+    private let endpointIdetifier = "84f18bdf010247388ecca64fd32aa5cb"
     private let resourceCRUD = "motorcycles"
     private let crudBaseUrl = "https://crudcrud.com/api/"
     
@@ -61,7 +61,7 @@ class NetworkManager: NSObject {
                 
                 for motocycles in motorcycleResponse {
                     
-                    let motocycle = MotorcycleResponse(_id: motocycles._id, brand: motocycles.brand, displacement: motocycles.displacement, finalTranssmition: motocycles.finalTranssmition, fuelCapacity: motocycles.fuelCapacity, image: motocycles.image, maximumSpeed: motocycles.maximumSpeed, maximunPower: motocycles.maximunPower, name: motocycles.name)
+                    let motocycle = MotorcycleResponse(_id: motocycles._id, brand: motocycles.brand, displacement: motocycles.displacement, finalTranssmition: motocycles.finalTranssmition, fuelCapacity: motocycles.fuelCapacity, maximumSpeed: motocycles.maximumSpeed, maximunPower: motocycles.maximunPower, name: motocycles.name)
                     motorCycleArray.append(motocycle)
                 }
                 completion(motorCycleArray)

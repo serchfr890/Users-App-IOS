@@ -12,6 +12,7 @@
 		7C5D16EB2457840D002631A4 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5D16EA2457840D002631A4 /* UserResponse.swift */; };
 		7C8F556224575A3E007CEC72 /* Pods_Users.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205B26A0E2296380D2E310E8 /* Pods_Users.framework */; };
 		7C8F556324575A3E007CEC72 /* Pods_Users.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 205B26A0E2296380D2E310E8 /* Pods_Users.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7CA39CF6247BAFB400A83E62 /* CreateOrUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA39CF5247BAFB400A83E62 /* CreateOrUpdateViewController.swift */; };
 		7CEB6BC0246CDA910033041F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB6BBF246CDA910033041F /* MainTabBarController.swift */; };
 		7CEB6BC2246CDAEB0033041F /* CrudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB6BC1246CDAEB0033041F /* CrudViewController.swift */; };
 		7CEB6BCA246DA6450033041F /* MotocycleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CEB6BC8246DA6450033041F /* MotocycleTableViewCell.xib */; };
@@ -70,6 +71,7 @@
 		7C5A706D24634BCB0006B057 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7C5D16E324576217002631A4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7C5D16EA2457840D002631A4 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		7CA39CF5247BAFB400A83E62 /* CreateOrUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrUpdateViewController.swift; sourceTree = "<group>"; };
 		7CEB6BBF246CDA910033041F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		7CEB6BC1246CDAEB0033041F /* CrudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudViewController.swift; sourceTree = "<group>"; };
 		7CEB6BC8246DA6450033041F /* MotocycleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotocycleTableViewCell.xib; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				7CF0E3E62453C45600509E7B /* UserDetailViewController.swift */,
 				7CEB6BBF246CDA910033041F /* MainTabBarController.swift */,
 				7CEB6BC1246CDAEB0033041F /* CrudViewController.swift */,
+				7CA39CF5247BAFB400A83E62 /* CreateOrUpdateViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 			files = (
 				7CF0E3E324539E6E00509E7B /* ViewController.swift in Sources */,
 				7CEB6BC2246CDAEB0033041F /* CrudViewController.swift in Sources */,
+				7CA39CF6247BAFB400A83E62 /* CreateOrUpdateViewController.swift in Sources */,
 				7CF0E3E72453C45600509E7B /* UserDetailViewController.swift in Sources */,
 				7CEB6BD2246EF0440033041F /* Motorcycle.swift in Sources */,
 				7CEB6BC0246CDA910033041F /* MainTabBarController.swift in Sources */,
