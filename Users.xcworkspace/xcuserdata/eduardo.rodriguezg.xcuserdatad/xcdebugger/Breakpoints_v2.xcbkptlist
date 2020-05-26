@@ -14,8 +14,8 @@
             filePath = "Users/Controllers/CreateOrUpdateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "CreateOrUpdateViewController"
             landmarkType = "3">
             <Locations>
@@ -110,6 +110,22 @@
                   offsetFromSymbolStart = "721">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B1726011-EFEF-4B4D-BA01-626E0109C3CD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Users/Controllers/CreateOrUpdateViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "textFieldDidChangeSelection(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

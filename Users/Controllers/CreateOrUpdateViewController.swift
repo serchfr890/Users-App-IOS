@@ -12,9 +12,40 @@ import RxSwift
 //MARK: - Observers Definitions
 private let disposeBagInputBrand = DisposeBag()
 private var subscriptionInputBrand: Disposable?
-
 private var isValidInputBrand = BehaviorSubject<Bool>(value: false)
 private var validateInputBrand: Observable<Bool> { return isValidInputBrand.asObservable() }
+
+private let disposeBagInputName = DisposeBag()
+private var subscriptionInputName: Disposable?
+private var isValidInputName = BehaviorSubject<Bool>(value: false)
+private var validateInputName: Observable<Bool> { return isValidInputName.asObservable() }
+
+private let disposeBagInputDissplacement = DisposeBag()
+private var subscriptionInputDissplacement: Disposable?
+private var isValidInputDissplacement = BehaviorSubject<Bool>(value: false)
+private var validateInputDissplacement: Observable<Bool> { return isValidInputDissplacement.asObservable() }
+
+private let disposeBagInputFinalTransmition = DisposeBag()
+private var subscriptionInputFinalTransmition: Disposable?
+private var isValidInputFinalTransmition = BehaviorSubject<Bool>(value: false)
+private var validateInputFinalTransmitiont: Observable<Bool> { return isValidInputFinalTransmition.asObservable() }
+
+private let disposeBagInputMaximunSpeed = DisposeBag()
+private var subscriptionInputMaximunSpeed: Disposable?
+private var isValidInputMaximunSpeed = BehaviorSubject<Bool>(value: false)
+private var validateInputMaximunSpeed: Observable<Bool> { return isValidInputMaximunSpeed.asObservable() }
+
+private let disposeBagInputFuelCapacity = DisposeBag()
+private var subscriptionInputFuelCapacity: Disposable?
+private var isValidInputFuelCapacity = BehaviorSubject<Bool>(value: false)
+private var validateInputFuelCapacity: Observable<Bool> { return isValidInputFuelCapacity.asObservable() }
+
+private let disposeBagInputMaximunPower = DisposeBag()
+private var subscriptionInputMaximunPower: Disposable?
+private var isValidInputMaximunPower = BehaviorSubject<Bool>(value: false)
+private var validateInputMaximunPower: Observable<Bool> { return isValidInputMaximunPower.asObservable() }
+
+var isFirstTimeAppLauchedCU = false
 
 class CreateOrUpdateViewController: UIViewController {
     
@@ -45,12 +76,19 @@ class CreateOrUpdateViewController: UIViewController {
     var type: String?
     var networkManager = NetworkManager()
     var utils = Utils()
-    
+    var isValidatedBrand = false
+    var isValidatedName = false
+    var isValidatedDissplacement = false
+    var isValidatedFinalTransmition = false
+    var isValidatedFuelCapacity = false
+    var isValidatedMaximunSpeed = false
+    var isValidatedMaximunPower = false
     
     // MARK: Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewItems()
+        isFirstTimeAppLauchedCU = true
         createOrUpdateMotorcycle()
         brandTextField.delegate = self
         dissplacementTextField.delegate = self
@@ -60,9 +98,75 @@ class CreateOrUpdateViewController: UIViewController {
         maximunPower.delegate = self
         nameTextField.delegate = self
         
-       /* validateInputBrand.subscribe({ [ weak self ] isValidInputBrad in
-            self?.changeBorderTextField(textField: self!.brandTextField, isValidInput: isValidInputBrad, label: nil, errorMEssage: "")
-        })*/
+        subscriptionInputBrand = validateInputBrand.subscribe(onNext: { isValidated in
+            
+            if(!(isFirstTimeAppLauchedCU)) {
+                self.isValidatedBrand = isValidated
+                self.enableCreateOrUpdateButton(button: self.createOrUpdateButton)
+                self.changeBorderTextField(textField: self.brandTextField, isValidInput: isValidated, label: self.brandLabel, errorMEssage: "El contenido debe ser solo texto")
+            }
+        })
+        subscriptionInputBrand?.disposed(by: disposeBagInputBrand)
+        
+        subscriptionInputName = validateInputName.subscribe(onNext: { isValidate in
+            if(!(isFirstTimeAppLauchedCU)) {
+                self.isValidatedName = isValidate
+                self.enableCreateOrUpdateButton(button: self.createOrUpdateButton)
+                self.changeBorderTextField(textField: self.nameTextField, isValidInput: isValidate, label: self.nameLabel, errorMEssage: "El contenido debe ser solo texto")
+            }
+        })
+        subscriptionInputName?.disposed(by: disposeBagInputName)
+        
+        subscriptionInputDissplacement = validateInputDissplacement.subscribe(onNext: { isValidate in
+            
+            if(!(isFirstTimeAppLauchedCU)) {
+                self.isValidatedDissplacement = isValidate
+                self.enableCreateOrUpdateButton(button: self.createOrUpdateButton)
+                self.changeBorderTextField(textField: self.dissplacementTextField, isValidInput: isValidate, label: self.dissplacementLabel, errorMEssage: "El contenido debe ser solo números")
+            }
+        })
+        subscriptionInputDissplacement?.disposed(by: disposeBagInputDissplacement)
+        
+        
+        subscriptionInputFinalTransmition = validateInputFinalTransmitiont.subscribe(onNext: { isValidate in
+            
+            if(!(isFirstTimeAppLauchedCU)) {
+                self.isValidatedFinalTransmition = isValidate
+                self.enableCreateOrUpdateButton(button: self.createOrUpdateButton)
+                self.changeBorderTextField(textField: self.finalTransmitionTextField, isValidInput: isValidate, label: self.finalTransmitionLabel, errorMEssage: "El contenido debe ser solo números")
+            }
+        })
+        subscriptionInputFinalTransmition?.disposed(by: disposeBagInputFinalTransmition)
+        
+        subscriptionInputFuelCapacity = validateInputFuelCapacity.subscribe(onNext: { isValidate in
+            
+            if(!(isFirstTimeAppLauchedCU)) {
+                self.isValidatedFuelCapacity = isValidate
+                self.enableCreateOrUpdateButton(button: self.createOrUpdateButton)
+                self.changeBorderTextField(textField: self.fuelCapacityTextField, isValidInput: isValidate, label: self.fuelCapacityLabel, errorMEssage: "El contenido debe ser solo números")
+            }
+        })
+        subscriptionInputFuelCapacity?.disposed(by: disposeBagInputFuelCapacity)
+        
+        subscriptionInputMaximunSpeed = validateInputMaximunSpeed.subscribe(onNext: { isValidate in
+            
+            if(!(isFirstTimeAppLauchedCU)) {
+                self.isValidatedMaximunSpeed = isValidate
+                self.enableCreateOrUpdateButton(button: self.createOrUpdateButton)
+                self.changeBorderTextField(textField: self.maximunSpeed, isValidInput: isValidate, label: self.maximunSpeedLabel, errorMEssage: "El contenido debe ser solo números")
+            }
+        })
+        subscriptionInputMaximunSpeed?.disposed(by: disposeBagInputMaximunSpeed)
+        
+        subscriptionInputMaximunPower = validateInputMaximunPower.subscribe(onNext: { isValidate in
+            
+            if(!(isFirstTimeAppLauchedCU)) {
+                self.isValidatedMaximunPower = isValidate
+                self.enableCreateOrUpdateButton(button: self.createOrUpdateButton)
+                self.changeBorderTextField(textField: self.maximunPower, isValidInput: isValidate, label: self.maximunPowerLabel, errorMEssage: "El contenido debe ser solo números")
+            }
+        })
+        subscriptionInputMaximunPower?.disposed(by: disposeBagInputMaximunPower)
         
     }
     
@@ -116,13 +220,14 @@ class CreateOrUpdateViewController: UIViewController {
         finalTransmitionTextField.tag = 2
         fuelCapacityTextField.placeholder = PLACEHOLDERS_CREATE_OR_UPDATE_VIEW.FUEL_CAPACITY
         fuelCapacityTextField.tag = 3
-        maximunPower.placeholder = PLACEHOLDERS_CREATE_OR_UPDATE_VIEW.MAXIMUM_POWER
-        maximunPower.tag = 4
         maximunSpeed.placeholder = PLACEHOLDERS_CREATE_OR_UPDATE_VIEW.MAXIMUM_SPEED
-        maximunSpeed.tag = 5
+        maximunSpeed.tag = 4
+        maximunPower.placeholder = PLACEHOLDERS_CREATE_OR_UPDATE_VIEW.MAXIMUM_POWER
+        maximunPower.tag = 5
         nameTextField.placeholder = PLACEHOLDERS_CREATE_OR_UPDATE_VIEW.NAME
         nameTextField.tag = 6
         cancelButton.setTitle(COMMON_MESSAGES.CANCEL_BUTTON, for: .normal)
+        createOrUpdateButton.isEnabled = false
         indicator.isHidden = true
         
         setupLabels(label: brandLabel)
@@ -154,14 +259,17 @@ class CreateOrUpdateViewController: UIViewController {
     }
     
     override func textFieldDidChangeSelection(_ textField: UITextField) {
+        isFirstTimeAppLauchedCU = false
         switch textField.tag {
         case 0:
             do {
-                let regex = try NSRegularExpression(pattern: "^[a-z]")
+                let regex = try NSRegularExpression(pattern: "[a-z]")
                 let nsString = textField.text! as NSString
                 let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
                 if(!(result.count == 0)) {
                     isValidInputBrand.onNext(true)
+                } else {
+                    isValidInputBrand.onNext(false)
                 }
             } catch let error as NSError {
                 print(error)
@@ -169,16 +277,96 @@ class CreateOrUpdateViewController: UIViewController {
             }
             print("TEXTFIELD 0")
         case 1:
+            do {
+                let regex = try NSRegularExpression(pattern: "[0-9]")
+                let nsString = textField.text! as NSString
+                let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
+                if(!(result.count == 0)) {
+                    print("ENTRO")
+                    isValidInputDissplacement.onNext(true)
+                } else {
+                    print("NO entró")
+                    isValidInputDissplacement.onNext(false)
+                }
+            } catch let error as NSError {
+                print(error)
+                isValidInputDissplacement.onNext(false)
+            }
             print("TEXTFIELD 1")
         case 2:
+            do {
+                let regex = try NSRegularExpression(pattern: "[0-9]")
+                let nsString = textField.text! as NSString
+                let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
+                if(!(result.count == 0)) {
+                    isValidInputFinalTransmition.onNext(true)
+                } else {
+                    isValidInputFinalTransmition.onNext(false)
+                }
+            } catch let error as NSError {
+                print(error)
+                isValidInputFinalTransmition.onNext(false)
+            }
             print("TEXTFIELD 2")
         case 3:
+            do {
+                let regex = try NSRegularExpression(pattern: "[0-9]")
+                let nsString = textField.text! as NSString
+                let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
+                if(!(result.count == 0)) {
+                    isValidInputFuelCapacity.onNext(true)
+                } else {
+                    isValidInputFuelCapacity.onNext(false)
+                }
+            } catch let error as NSError {
+                print(error)
+                isValidInputFuelCapacity.onNext(false)
+            }
             print("TEXTFIELD 3")
         case 4:
+            do {
+                let regex = try NSRegularExpression(pattern: "[0-9]")
+                let nsString = textField.text! as NSString
+                let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
+                if(!(result.count == 0)) {
+                    isValidInputMaximunSpeed.onNext(true)
+                } else {
+                    isValidInputMaximunSpeed.onNext(false)
+                }
+            } catch let error as NSError {
+                print(error)
+                isValidInputMaximunSpeed.onNext(false)
+            }
             print("TEXTFIELD 4")
         case 5:
+            do {
+                let regex = try NSRegularExpression(pattern: "[0-9]")
+                let nsString = textField.text! as NSString
+                let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
+                if(!(result.count == 0)) {
+                    isValidInputMaximunPower.onNext(true)
+                } else {
+                    isValidInputMaximunPower.onNext(false)
+                }
+            } catch let error as NSError {
+                print(error)
+                isValidInputMaximunPower.onNext(false)
+            }
             print("TEXTFIELD 5")
         case 6:
+            do {
+                let regex = try NSRegularExpression(pattern: "[a-z]")
+                let nsString = textField.text! as NSString
+                let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
+                if(!(result.count == 0)) {
+                    isValidInputName.onNext(true)
+                } else {
+                    isValidInputName.onNext(false)
+                }
+            } catch let error as NSError {
+                print(error)
+                isValidInputName.onNext(false)
+            }
             print("TEXTFIELD 6")
         default:
             print(COMMON_MESSAGES.EMPTY)
@@ -204,6 +392,14 @@ class CreateOrUpdateViewController: UIViewController {
         label.textColor = .red
         label.font = UIFont.boldSystemFont(ofSize: 12.0)
         label.clipsToBounds = true
+    }
+    
+    func enableCreateOrUpdateButton(button: UIButton) {
+        if (isValidatedBrand && isValidatedName && isValidatedDissplacement && isValidatedFinalTransmition && isValidatedFuelCapacity &&  isValidatedMaximunSpeed && isValidatedMaximunPower) {
+            button.isEnabled = true
+            return
+        }
+        button.isEnabled = false
     }
     
 }
