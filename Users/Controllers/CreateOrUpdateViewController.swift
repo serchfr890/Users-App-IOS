@@ -43,13 +43,12 @@ class CreateOrUpdateViewController: UIViewController {
         
         var motocycleCreateOrUpdate =  MotorcycleRequest(brand: brandTextField.text!, displacement: Int(dissplacementTextField!.text!)!, finalTranssmition: Int(finalTransmitionTextField.text!)!, fuelCapacity: Int(fuelCapacityTextField.text!)!, maximumSpeed: Int(maximunSpeed.text!)!, maximunPower: Double(maximunPower.text!)!, name: nameTextField.text!)
 
-        
+        indicator.isHidden = false
+        indicator.startAnimating()
         
         
         switch self.type {
         case "update":
-            indicator.isHidden = false
-            indicator.startAnimating()
             print("Motorcicleta update \(motocycleCreateOrUpdate)")
             networkManager.updateMotocycle(id: motorcycles!._id, motorcycle: motocycleCreateOrUpdate) {response in print("RESPONSE UPDATE: \(response)")
                 if(!(response == 200)) {
@@ -60,6 +59,16 @@ class CreateOrUpdateViewController: UIViewController {
                 self.indicator.stopAnimating()
             }
         case "create":
+            var newMotorcycle = MotorcycleRequest(brand: brandTextField.text!, displacement: Int(dissplacementTextField!.text!)!, finalTranssmition: Int(finalTransmitionTextField.text!)!, fuelCapacity: Int(fuelCapacityTextField.text!)!, maximumSpeed: Int(maximunSpeed.text!)!, maximunPower: Double(maximunPower.text!)!, name: nameTextField.text!)
+            
+            networkManager.createMotorcycle(motorcycle: newMotorcycle) { response in
+                if((response == 200) || (response == 201)) {
+                    self.indicator.stopAnimating()
+                    self.navigationController?.popViewController(animated: true)
+                    return
+                }
+                self.utils.alertMessage(title: "Error!!!", message: "Hubo un error al crear el elemento", controller: self)
+            }
             print("")
         default:
             print("")

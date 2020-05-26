@@ -12,12 +12,14 @@ class CrudViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var createButton: UIButton!
     
     // MARK: -Variables
         var networkManager = NetworkManager()
         var utils = Utils()
     var firtsTime = false;
     var index: Int?
+    var type: String?
     // let motocycles = ["Vort-X 300","Dominar 400","Pulsar 200","Yamaha 150"]
     var motocycle: [MotorcycleResponse] = []
     var motorcycleSelected: MotorcycleResponse?
@@ -30,6 +32,7 @@ class CrudViewController: UIViewController {
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+                    self.tableView.tableFooterView = UIView()
         networkManager.getAllMotocycles() {motocicles in
             // print("MOTOS: \(motocicles)")
             self.motocycle = motocicles!
@@ -39,7 +42,10 @@ class CrudViewController: UIViewController {
             self.tableView.delegate = self
             self.tableView.register(UINib(nibName: "MotocycleTableViewCell", bundle: nil), forCellReuseIdentifier: "motocycleCell")
             self.tableView.reloadData()
+            self.tableView.tableFooterView = UIView()
         }
+        
+        createButton.setTitle("Crear", for: .normal)
     }
     
     
@@ -86,9 +92,18 @@ class CrudViewController: UIViewController {
     @objc func editMotocycle(sender: UIButton) {
                 self.index = sender.tag
         print("**************************** \(self.index)")
+        self.type = "update"
         performSegue(withIdentifier: "CreateOrUpdate", sender: self)
         
     }
+    
+    @IBAction func createMotorcycleAction(_ sender: UIButton) {
+        self.type = "create"
+        performSegue(withIdentifier: "CreateOrUpdate", sender: self)
+    }
+    
+    
+    
 }
 
 // MARK: - Extensions
@@ -127,8 +142,16 @@ extension CrudViewController: UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CreateOrUpdateViewController {
-            destination.motorcycles =  motocycle[index!]
-            destination.type = "update"
+            print("+++++++TYPE: \(self.type)************")
+            switch self.type {
+            case "update":
+                destination.motorcycles =  motocycle[index!]
+                destination.type = self.type
+            case "create":
+                destination.type = self.type
+            default:
+                print("")
+            }
         }
     }
     
