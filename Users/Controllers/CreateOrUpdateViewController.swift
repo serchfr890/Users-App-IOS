@@ -103,7 +103,7 @@ class CreateOrUpdateViewController: UIViewController {
             if(!(isFirstTimeAppLauchedCU)) {
                 self.isValidatedBrand = isValidated
                 self.enableCreateOrUpdateButton(button: self.createOrUpdateButton)
-                self.changeBorderTextField(textField: self.brandTextField, isValidInput: isValidated, label: self.brandLabel, errorMEssage: "El contenido debe ser solo texto")
+                self.changeBorderTextField(textField: self.brandTextField, isValidInput: isValidated, label: self.brandLabel, errorMEssage: COMMON_MESSAGES.ONLY_CONTENT_TEXT)
             }
         })
         subscriptionInputBrand?.disposed(by: disposeBagInputBrand)
@@ -112,7 +112,7 @@ class CreateOrUpdateViewController: UIViewController {
             if(!(isFirstTimeAppLauchedCU)) {
                 self.isValidatedName = isValidate
                 self.enableCreateOrUpdateButton(button: self.createOrUpdateButton)
-                self.changeBorderTextField(textField: self.nameTextField, isValidInput: isValidate, label: self.nameLabel, errorMEssage: "El contenido debe ser solo texto")
+                self.changeBorderTextField(textField: self.nameTextField, isValidInput: isValidate, label: self.nameLabel, errorMEssage: COMMON_MESSAGES.ONLY_CONTENT_NUMBERS)
             }
         })
         subscriptionInputName?.disposed(by: disposeBagInputName)
@@ -122,7 +122,7 @@ class CreateOrUpdateViewController: UIViewController {
             if(!(isFirstTimeAppLauchedCU)) {
                 self.isValidatedDissplacement = isValidate
                 self.enableCreateOrUpdateButton(button: self.createOrUpdateButton)
-                self.changeBorderTextField(textField: self.dissplacementTextField, isValidInput: isValidate, label: self.dissplacementLabel, errorMEssage: "El contenido debe ser solo números")
+                self.changeBorderTextField(textField: self.dissplacementTextField, isValidInput: isValidate, label: self.dissplacementLabel, errorMEssage: COMMON_MESSAGES.ONLY_CONTENT_NUMBERS)
             }
         })
         subscriptionInputDissplacement?.disposed(by: disposeBagInputDissplacement)
@@ -133,7 +133,7 @@ class CreateOrUpdateViewController: UIViewController {
             if(!(isFirstTimeAppLauchedCU)) {
                 self.isValidatedFinalTransmition = isValidate
                 self.enableCreateOrUpdateButton(button: self.createOrUpdateButton)
-                self.changeBorderTextField(textField: self.finalTransmitionTextField, isValidInput: isValidate, label: self.finalTransmitionLabel, errorMEssage: "El contenido debe ser solo números")
+                self.changeBorderTextField(textField: self.finalTransmitionTextField, isValidInput: isValidate, label: self.finalTransmitionLabel, errorMEssage: COMMON_MESSAGES.ONLY_CONTENT_NUMBERS)
             }
         })
         subscriptionInputFinalTransmition?.disposed(by: disposeBagInputFinalTransmition)
@@ -143,7 +143,7 @@ class CreateOrUpdateViewController: UIViewController {
             if(!(isFirstTimeAppLauchedCU)) {
                 self.isValidatedFuelCapacity = isValidate
                 self.enableCreateOrUpdateButton(button: self.createOrUpdateButton)
-                self.changeBorderTextField(textField: self.fuelCapacityTextField, isValidInput: isValidate, label: self.fuelCapacityLabel, errorMEssage: "El contenido debe ser solo números")
+                self.changeBorderTextField(textField: self.fuelCapacityTextField, isValidInput: isValidate, label: self.fuelCapacityLabel, errorMEssage: COMMON_MESSAGES.ONLY_CONTENT_NUMBERS)
             }
         })
         subscriptionInputFuelCapacity?.disposed(by: disposeBagInputFuelCapacity)
@@ -153,7 +153,7 @@ class CreateOrUpdateViewController: UIViewController {
             if(!(isFirstTimeAppLauchedCU)) {
                 self.isValidatedMaximunSpeed = isValidate
                 self.enableCreateOrUpdateButton(button: self.createOrUpdateButton)
-                self.changeBorderTextField(textField: self.maximunSpeed, isValidInput: isValidate, label: self.maximunSpeedLabel, errorMEssage: "El contenido debe ser solo números")
+                self.changeBorderTextField(textField: self.maximunSpeed, isValidInput: isValidate, label: self.maximunSpeedLabel, errorMEssage: COMMON_MESSAGES.ONLY_CONTENT_NUMBERS)
             }
         })
         subscriptionInputMaximunSpeed?.disposed(by: disposeBagInputMaximunSpeed)
@@ -163,7 +163,7 @@ class CreateOrUpdateViewController: UIViewController {
             if(!(isFirstTimeAppLauchedCU)) {
                 self.isValidatedMaximunPower = isValidate
                 self.enableCreateOrUpdateButton(button: self.createOrUpdateButton)
-                self.changeBorderTextField(textField: self.maximunPower, isValidInput: isValidate, label: self.maximunPowerLabel, errorMEssage: "El contenido debe ser solo números")
+                self.changeBorderTextField(textField: self.maximunPower, isValidInput: isValidate, label: self.maximunPowerLabel, errorMEssage: COMMON_MESSAGES.ONLY_CONTENT_NUMBERS)
             }
         })
         subscriptionInputMaximunPower?.disposed(by: disposeBagInputMaximunPower)
@@ -263,7 +263,7 @@ class CreateOrUpdateViewController: UIViewController {
         switch textField.tag {
         case 0:
             do {
-                let regex = try NSRegularExpression(pattern: "[a-z]")
+                let regex = try NSRegularExpression(pattern: REGEX.ONLY_TEXT)
                 let nsString = textField.text! as NSString
                 let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
                 if(!(result.count == 0)) {
@@ -275,27 +275,23 @@ class CreateOrUpdateViewController: UIViewController {
                 print(error)
                 isValidInputBrand.onNext(false)
             }
-            print("TEXTFIELD 0")
         case 1:
             do {
-                let regex = try NSRegularExpression(pattern: "[0-9]")
+                let regex = try NSRegularExpression(pattern: REGEX.ONLY_NUMBERS)
                 let nsString = textField.text! as NSString
                 let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
                 if(!(result.count == 0)) {
-                    print("ENTRO")
                     isValidInputDissplacement.onNext(true)
                 } else {
-                    print("NO entró")
                     isValidInputDissplacement.onNext(false)
                 }
             } catch let error as NSError {
                 print(error)
                 isValidInputDissplacement.onNext(false)
             }
-            print("TEXTFIELD 1")
         case 2:
             do {
-                let regex = try NSRegularExpression(pattern: "[0-9]")
+                let regex = try NSRegularExpression(pattern: REGEX.ONLY_NUMBERS)
                 let nsString = textField.text! as NSString
                 let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
                 if(!(result.count == 0)) {
@@ -307,10 +303,9 @@ class CreateOrUpdateViewController: UIViewController {
                 print(error)
                 isValidInputFinalTransmition.onNext(false)
             }
-            print("TEXTFIELD 2")
         case 3:
             do {
-                let regex = try NSRegularExpression(pattern: "[0-9]")
+                let regex = try NSRegularExpression(pattern: REGEX.ONLY_NUMBERS)
                 let nsString = textField.text! as NSString
                 let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
                 if(!(result.count == 0)) {
@@ -322,10 +317,9 @@ class CreateOrUpdateViewController: UIViewController {
                 print(error)
                 isValidInputFuelCapacity.onNext(false)
             }
-            print("TEXTFIELD 3")
         case 4:
             do {
-                let regex = try NSRegularExpression(pattern: "[0-9]")
+                let regex = try NSRegularExpression(pattern: REGEX.ONLY_NUMBERS)
                 let nsString = textField.text! as NSString
                 let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
                 if(!(result.count == 0)) {
@@ -337,10 +331,9 @@ class CreateOrUpdateViewController: UIViewController {
                 print(error)
                 isValidInputMaximunSpeed.onNext(false)
             }
-            print("TEXTFIELD 4")
         case 5:
             do {
-                let regex = try NSRegularExpression(pattern: "[0-9]")
+                let regex = try NSRegularExpression(pattern: REGEX.ONLY_NUMBERS)
                 let nsString = textField.text! as NSString
                 let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
                 if(!(result.count == 0)) {
@@ -352,10 +345,9 @@ class CreateOrUpdateViewController: UIViewController {
                 print(error)
                 isValidInputMaximunPower.onNext(false)
             }
-            print("TEXTFIELD 5")
         case 6:
             do {
-                let regex = try NSRegularExpression(pattern: "[a-z]")
+                let regex = try NSRegularExpression(pattern: REGEX.ONLY_TEXT)
                 let nsString = textField.text! as NSString
                 let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
                 if(!(result.count == 0)) {
@@ -367,7 +359,6 @@ class CreateOrUpdateViewController: UIViewController {
                 print(error)
                 isValidInputName.onNext(false)
             }
-            print("TEXTFIELD 6")
         default:
             print(COMMON_MESSAGES.EMPTY)
         }

@@ -55,6 +55,8 @@ struct COMMON_MESSAGES {
     static let ERROR_CREATE = "Hubo un error al crear el elemento"
     static let CANCEL_BUTTON = "Cancelar"
     static let UPDATE_BUTTON = "Actualizar"
+    static let ONLY_CONTENT_TEXT = "El contenido debe ser solo texto"
+    static let ONLY_CONTENT_NUMBERS = "El contenido debe ser solo números"
 }
 
 struct LOGIN_FIELD_NAMES {
@@ -72,6 +74,8 @@ struct DETAIL_FIELDS_NAMES {
 
 struct REGEX {
     static let MAIL = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
+    static let ONLY_NUMBERS = "[0-9]"
+    static let ONLY_TEXT = "[a-z]"
 }
 
 struct TAB_BAR_ITEMS {
@@ -112,7 +116,7 @@ struct PLACEHOLDERS_CREATE_OR_UPDATE_VIEW {
 
 struct NETWORK_CONSTANST {
     static let URL_BASE_USERS = "https://reqres.in"
-    static let ENDPOINT_IDENTIFIER = "d93aaf39c5704a6aa777a2cb12a14ad2"
+    static let ENDPOINT_IDENTIFIER = "81e3457d39504d4c96dcaee48f27ee10"
     static let RESOURCE_CRUD = "motorcycles"
     static let CRUD_BASE_URL = "https://crudcrud.com/api/"
 }
