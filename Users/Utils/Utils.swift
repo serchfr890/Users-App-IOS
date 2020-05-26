@@ -29,6 +29,9 @@ struct VIEWS_CONTROLLER_IDENTIFIER {
     static let USER_DETAIL = "UserDetailVC"
     static let USER_LIST = "UserListVC"
     static let TAB_BAR = "Tab_Bar_VC"
+    static let MOTORCYCLE_TABLE_VIEW_CELL = "MotocycleTableViewCell"
+    static let MOTORCYCLE_CELL = "motocycleCell"
+    static let CREATE_OR_UPDATE = "CreateOrUpdate"
 }
 
 struct COMMON_MESSAGES {
@@ -45,6 +48,13 @@ struct COMMON_MESSAGES {
     static let CAN_NOT_DELETE_ITEM = "No se puede eliminar elemento"
     static let CAN_NOT_DELETE_ITEM_TITLE = "Lo sentimos !!!"
     static let SUCCESS_DELETE = "Se ha borrqrdo correctamente!!!"
+    static let CREATE_BUTTON = "Crear"
+    static let SUCCESSFUL_UPDATE = "Actualización exitosa"
+    static let ERROR = "Error !!!"
+    static let ERROR_UPDATE = "Lo sentimos. Hubo un error al actualizar elemento"
+    static let ERROR_CREATE = "Hubo un error al crear el elemento"
+    static let CANCEL_BUTTON = "Cancelar"
+    static let UPDATE_BUTTON = "Actualizar"
 }
 
 struct LOGIN_FIELD_NAMES {
@@ -83,4 +93,26 @@ struct ICON_SYSTEM_NAMES {
     static let TRASH = "trash"
     static let PENCIL = "pencil"
     static let PERSON_3_FILL = "person.3.fill"
+}
+
+struct CRUD_TYPE {
+    static let CREATE = "create"
+    static let UPDATE = "update"
+}
+
+struct PLACEHOLDERS_CREATE_OR_UPDATE_VIEW {
+    static let BRAND = "Ingresar Marca"
+    static let DISSPLACEMENT = "Ingresar cilindrada"
+    static let FINAL_TRANSMITION = "Ingresar # velocidades"
+    static let FUEL_CAPACITY = "Ingresar capacidad de combustible"
+    static let MAXIMUM_POWER = "Ingresar Caballos de fuerza"
+    static let MAXIMUM_SPEED = "ngresar velocidad maxima"
+    static let NAME = "Ingresar nombre"
+}
+
+struct NETWORK_CONSTANST {
+    static let URL_BASE_USERS = "https://reqres.in"
+    static let ENDPOINT_IDENTIFIER = "d93aaf39c5704a6aa777a2cb12a14ad2"
+    static let RESOURCE_CRUD = "motorcycles"
+    static let CRUD_BASE_URL = "https://crudcrud.com/api/"
 }

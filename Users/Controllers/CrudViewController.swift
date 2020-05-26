@@ -15,13 +15,12 @@ class CrudViewController: UIViewController {
     @IBOutlet weak var createButton: UIButton!
     
     // MARK: -Variables
-        var networkManager = NetworkManager()
-        var utils = Utils()
+    var networkManager = NetworkManager()
+    var utils = Utils()
     var firtsTime = false;
     var index: Int?
     var type: String?
-    // let motocycles = ["Vort-X 300","Dominar 400","Pulsar 200","Yamaha 150"]
-    var motocycle: [MotorcycleResponse] = []
+    var motorcyclesResponse: [MotorcycleResponse] = []
     var motorcycleSelected: MotorcycleResponse?
     
     required init?(coder aDecoder: NSCoder) {
@@ -35,35 +34,30 @@ class CrudViewController: UIViewController {
                     self.tableView.tableFooterView = UIView()
         networkManager.getAllMotocycles() {motocicles in
             // print("MOTOS: \(motocicles)")
-            self.motocycle = motocicles!
+            self.motorcyclesResponse = motocicles!
 
             // print("Motocicletas: \(self.motocycles)")
             self.tableView.dataSource = self
             self.tableView.delegate = self
-            self.tableView.register(UINib(nibName: "MotocycleTableViewCell", bundle: nil), forCellReuseIdentifier: "motocycleCell")
+            self.tableView.register(UINib(nibName: VIEWS_CONTROLLER_IDENTIFIER.MOTORCYCLE_TABLE_VIEW_CELL, bundle: nil), forCellReuseIdentifier: VIEWS_CONTROLLER_IDENTIFIER.MOTORCYCLE_CELL)
             self.tableView.reloadData()
             self.tableView.tableFooterView = UIView()
         }
         
-        createButton.setTitle("Crear", for: .normal)
+        createButton.setTitle(COMMON_MESSAGES.CREATE_BUTTON, for: .normal)
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        tableView.dataSource = self
-//        tableView.delegate = self
-//        tableView.register(UINib(nibName: "MotocycleTableViewCell", bundle: nil), forCellReuseIdentifier: "motocycleCell")
-        //tableView.reloadData();
-        print("------------SE EJKECUTA CICLOP de Vida----------------------\(self.firtsTime)")
         
         if(firtsTime) {
             networkManager.getAllMotocycles() {motocicles in
                 // print("MOTOS: \(motocicles)")
-                self.motocycle = motocicles!
+                self.motorcyclesResponse = motocicles!
                 self.tableView.reloadData()
             }
-            self.utils.alertMessage(title: "Actualización exitosa", message: COMMON_MESSAGES.EMPTY, controller: self)
+            self.utils.alertMessage(title: COMMON_MESSAGES.SUCCESSFUL_UPDATE, message: COMMON_MESSAGES.EMPTY, controller: self)
         }
     }
     
@@ -72,14 +66,15 @@ class CrudViewController: UIViewController {
         self.firtsTime = true
     }
     
+        // MARK: - Functions
+    
     @objc func deleteMotocycle(sender: UIButton) {
-        print("SE PRESIONÓ EL BOTON DE BORRAR \(sender.tag)")
-        let id = motocycle[sender.tag]._id
+        let id = motorcyclesResponse[sender.tag]._id
         networkManager.deleteMotocycle(id: id) { status in
             if (status == 200) {
                 self.networkManager.getAllMotocycles() {motocicles in
                     
-                    self.motocycle = motocicles!
+                    self.motorcyclesResponse = motocicles!
                     self.tableView.reloadData()
                     self.utils.alertMessage(title: COMMON_MESSAGES.EMPTY, message: COMMON_MESSAGES.SUCCESS_DELETE, controller: self)
                 }
@@ -91,19 +86,15 @@ class CrudViewController: UIViewController {
     
     @objc func editMotocycle(sender: UIButton) {
                 self.index = sender.tag
-        print("**************************** \(self.index)")
-        self.type = "update"
-        performSegue(withIdentifier: "CreateOrUpdate", sender: self)
+        self.type = CRUD_TYPE.UPDATE
+        performSegue(withIdentifier: VIEWS_CONTROLLER_IDENTIFIER.CREATE_OR_UPDATE, sender: self)
         
     }
     
     @IBAction func createMotorcycleAction(_ sender: UIButton) {
-        self.type = "create"
-        performSegue(withIdentifier: "CreateOrUpdate", sender: self)
+        self.type = CRUD_TYPE.CREATE
+        performSegue(withIdentifier: VIEWS_CONTROLLER_IDENTIFIER.CREATE_OR_UPDATE, sender: self)
     }
-    
-    
-    
 }
 
 // MARK: - Extensions
@@ -111,7 +102,7 @@ class CrudViewController: UIViewController {
 extension CrudViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return motocycle.count
+        return motorcyclesResponse.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -119,14 +110,14 @@ extension CrudViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "motocycleCell", for: indexPath) as?  MotocycleTableViewCell
-        cell?.nameDescriptionLabel.text = motocycle[indexPath.row].name
-        cell?.brandDescriptionLabel.text = motocycle[indexPath.row].brand
-        cell?.displacementDescriptionLabel.text = String(motocycle[indexPath.row].displacement)
-        cell?.maximumSpeedDescriptionLabel.text = String(motocycle[indexPath.row].maximumSpeed)
-        cell?.finalTranssmitionDescriptionLabel.text = String(motocycle[indexPath.row].finalTranssmition)
-        cell?.fuelCapacityDescriptionLabel.text = String(motocycle[indexPath.row].fuelCapacity)
-        cell?.maximunPowerDescriptionLabel.text = String(motocycle[indexPath.row].maximunPower)
+        let cell = tableView.dequeueReusableCell(withIdentifier: VIEWS_CONTROLLER_IDENTIFIER.MOTORCYCLE_CELL, for: indexPath) as?  MotocycleTableViewCell
+        cell?.nameDescriptionLabel.text = motorcyclesResponse[indexPath.row].name
+        cell?.brandDescriptionLabel.text = motorcyclesResponse[indexPath.row].brand
+        cell?.displacementDescriptionLabel.text = String(motorcyclesResponse[indexPath.row].displacement)
+        cell?.maximumSpeedDescriptionLabel.text = String(motorcyclesResponse[indexPath.row].maximumSpeed)
+        cell?.finalTranssmitionDescriptionLabel.text = String(motorcyclesResponse[indexPath.row].finalTranssmition)
+        cell?.fuelCapacityDescriptionLabel.text = String(motorcyclesResponse[indexPath.row].fuelCapacity)
+        cell?.maximunPowerDescriptionLabel.text = String(motorcyclesResponse[indexPath.row].maximunPower)
         
         cell?.deleteButton.tag = indexPath.row
         cell?.deleteButton.addTarget(self, action: #selector(deleteMotocycle), for: .touchUpInside)
@@ -142,15 +133,14 @@ extension CrudViewController: UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CreateOrUpdateViewController {
-            print("+++++++TYPE: \(self.type)************")
             switch self.type {
-            case "update":
-                destination.motorcycles =  motocycle[index!]
+            case CRUD_TYPE.UPDATE:
+                destination.motorcycles =  motorcyclesResponse[index!]
                 destination.type = self.type
-            case "create":
+            case CRUD_TYPE.CREATE:
                 destination.type = self.type
             default:
-                print("")
+                print(COMMON_MESSAGES.EMPTY)
             }
         }
     }

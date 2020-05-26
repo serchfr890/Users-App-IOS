@@ -10,14 +10,12 @@ import UIKit
 import Alamofire
 class NetworkManager: NSObject {
     
-    private var urlString = "https://reqres.in"
-    private let endpointIdetifier = "d93aaf39c5704a6aa777a2cb12a14ad2"
-    private let resourceCRUD = "motorcycles"
-    private let crudBaseUrl = "https://crudcrud.com/api/"
+    // MARK: - Variables
+    private var urlString = COMMON_MESSAGES.EMPTY
     
     // MARCK: - USERS
     func doLogin(emailAddress: String, password: String, completion: @escaping (Int?) -> Void) -> Void {
-        urlString = "\(urlString)/api/login"
+        urlString = "\(NETWORK_CONSTANST.URL_BASE_USERS)/api/login"
         
         AF.request(urlString, method: .post, parameters: ["email":emailAddress, "password":password], encoding: JSONEncoding.default).response { response in
             completion(response.response?.statusCode)
@@ -27,7 +25,7 @@ class NetworkManager: NSObject {
     
     func getAllUsers(completion: @escaping ([User]?) -> Void) -> Void {
         var userArray: [User] = []
-        urlString = "\(urlString)/api/users?page=2"
+        urlString = "\(NETWORK_CONSTANST.URL_BASE_USERS)/api/users?page=2"
         
         AF.request(urlString, method: .get, encoding: JSONEncoding.default).response { response in
             guard let data = response.data else {return}
@@ -51,7 +49,7 @@ class NetworkManager: NSObject {
     // MARCK: CRUD
     func getAllMotocycles(completion: @escaping ([MotorcycleResponse]?) -> Void) -> Void {
         
-        let crudUrl = "\(crudBaseUrl)\(endpointIdetifier)/\(resourceCRUD)"
+        let crudUrl = "\(NETWORK_CONSTANST.CRUD_BASE_URL)\(NETWORK_CONSTANST.ENDPOINT_IDENTIFIER)/\(NETWORK_CONSTANST.RESOURCE_CRUD)"
         var motorCycleArray: [MotorcycleResponse] = []
         AF.request(crudUrl, method: .get).response { response in
             guard let data = response.data else {return}
@@ -74,7 +72,7 @@ class NetworkManager: NSObject {
     
     
     func createMotorcycle (motorcycle: MotorcycleRequest, completion: @escaping (Int?) -> Void) -> Void  {
-        let crudUrl = "\(crudBaseUrl)\(endpointIdetifier)/\(resourceCRUD)"
+        let crudUrl = "\(NETWORK_CONSTANST.CRUD_BASE_URL)\(NETWORK_CONSTANST.ENDPOINT_IDENTIFIER)/\(NETWORK_CONSTANST.RESOURCE_CRUD)"
 
         AF.request(crudUrl, method: .post, parameters: motorcycle , encoder: JSONParameterEncoder.sortedKeys).response { response in
             completion(response.response?.statusCode)
@@ -82,7 +80,7 @@ class NetworkManager: NSObject {
     }
     
     func updateMotocycle(id: String,  motorcycle: MotorcycleRequest, completion: @escaping(Int?) -> Void) -> Void {
-        let crudUrl = "\(crudBaseUrl)\(endpointIdetifier)/\(resourceCRUD)/\(id)"
+        let crudUrl = "\(NETWORK_CONSTANST.CRUD_BASE_URL)\(NETWORK_CONSTANST.ENDPOINT_IDENTIFIER)/\(NETWORK_CONSTANST.RESOURCE_CRUD)/\(id)"
         
         AF.request(crudUrl, method: .put, parameters: motorcycle, encoder: JSONParameterEncoder.sortedKeys).response { response in
             completion(response.response?.statusCode)
@@ -90,7 +88,7 @@ class NetworkManager: NSObject {
     }
     
     func deleteMotocycle(id: String, completion: @escaping(Int?) -> Void) -> Void {
-        let crudUrl = "\(crudBaseUrl)\(endpointIdetifier)/\(resourceCRUD)/\(id)"
+        let crudUrl = "\(NETWORK_CONSTANST.CRUD_BASE_URL)\(NETWORK_CONSTANST.ENDPOINT_IDENTIFIER)/\(NETWORK_CONSTANST.RESOURCE_CRUD)/\(id)"
 AF.request(crudUrl, method: .delete, encoding: JSONEncoding.default).response {
             response in
             completion(response.response?.statusCode)
