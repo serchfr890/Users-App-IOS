@@ -7,6 +7,14 @@
 //
 
 import UIKit
+import RxSwift
+
+//MARK: - Observers Definitions
+private let disposeBagInputBrand = DisposeBag()
+private var subscriptionInputBrand: Disposable?
+
+private var isValidInputBrand = BehaviorSubject<Bool>(value: false)
+private var validateInputBrand: Observable<Bool> { return isValidInputBrand.asObservable() }
 
 class CreateOrUpdateViewController: UIViewController {
     
@@ -36,6 +44,18 @@ class CreateOrUpdateViewController: UIViewController {
         super.viewDidLoad()
         setupViewItems()
         createOrUpdateMotorcycle()
+        brandTextField.delegate = self
+        dissplacementTextField.delegate = self
+        finalTransmitionTextField.delegate = self
+        fuelCapacityTextField.delegate = self
+        maximunSpeed.delegate = self
+        maximunPower.delegate = self
+        nameTextField.delegate = self
+        
+       /* validateInputBrand.subscribe({ [ weak self ] isValidInputBrad in
+            self?.changeBorderTextField(textField: self!.brandTextField, isValidInput: isValidInputBrad, label: nil, errorMEssage: "")
+        })*/
+        
     }
     
     // MARK: Button Actions
@@ -81,12 +101,19 @@ class CreateOrUpdateViewController: UIViewController {
     
     private func setupViewItems() {
         brandTextField.placeholder = PLACEHOLDERS_CREATE_OR_UPDATE_VIEW.BRAND
+        brandTextField.tag = 0
         dissplacementTextField.placeholder = PLACEHOLDERS_CREATE_OR_UPDATE_VIEW.DISSPLACEMENT
+        dissplacementTextField.tag = 1
         finalTransmitionTextField.placeholder = PLACEHOLDERS_CREATE_OR_UPDATE_VIEW.FINAL_TRANSMITION
+        finalTransmitionTextField.tag = 2
         fuelCapacityTextField.placeholder = PLACEHOLDERS_CREATE_OR_UPDATE_VIEW.FUEL_CAPACITY
+        fuelCapacityTextField.tag = 3
         maximunPower.placeholder = PLACEHOLDERS_CREATE_OR_UPDATE_VIEW.MAXIMUM_POWER
+        maximunPower.tag = 4
         maximunSpeed.placeholder = PLACEHOLDERS_CREATE_OR_UPDATE_VIEW.MAXIMUM_SPEED
+        maximunSpeed.tag = 5
         nameTextField.placeholder = PLACEHOLDERS_CREATE_OR_UPDATE_VIEW.NAME
+        nameTextField.tag = 6
         cancelButton.setTitle(COMMON_MESSAGES.CANCEL_BUTTON, for: .normal)
         indicator.isHidden = true
     }
@@ -109,5 +136,50 @@ class CreateOrUpdateViewController: UIViewController {
             print(COMMON_MESSAGES.EMPTY)
         }
     }
+    
+    override func textFieldDidChangeSelection(_ textField: UITextField) {
+        switch textField.tag {
+        case 0:
+            do {
+                let regex = try NSRegularExpression(pattern: "^[a-z]")
+                let nsString = textField.text! as NSString
+                let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
+                if(!(result.count == 0)) {
+                    isValidInputBrand.onNext(true)
+                }
+            } catch let error as NSError {
+                print(error)
+                isValidInputBrand.onNext(false)
+            }
+            print("TEXTFIELD 0")
+        case 1:
+            print("TEXTFIELD 1")
+        case 2:
+            print("TEXTFIELD 2")
+        case 3:
+            print("TEXTFIELD 3")
+        case 4:
+            print("TEXTFIELD 4")
+        case 5:
+            print("TEXTFIELD 5")
+        case 6:
+            print("TEXTFIELD 6")
+        default:
+            print(COMMON_MESSAGES.EMPTY)
+        }
+    }
+    
+    func changeBorderTextField(textField: UITextField, isValidInput: Bool, label: UILabel, errorMEssage: String) {
+            textField.layer.borderWidth = 1.5
+            textField.layer.cornerRadius = 5
+            if (isValidInput) {
+                textField.layer.borderColor = UIColor.green.cgColor
+                label.isHidden = true
+                return
+            }
+            textField.layer.borderColor = UIColor.red.cgColor
+            label.text = errorMEssage
+            label.isHidden = false
+        }
     
 }

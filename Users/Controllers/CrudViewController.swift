@@ -53,7 +53,6 @@ class CrudViewController: UIViewController {
         
         if(firtsTime) {
             networkManager.getAllMotocycles() {motocicles in
-                // print("MOTOS: \(motocicles)")
                 self.motorcyclesResponse = motocicles!
                 self.tableView.reloadData()
             }

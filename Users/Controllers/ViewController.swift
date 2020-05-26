@@ -220,13 +220,12 @@ extension UIViewController: UITextFieldDelegate {
             do {
                 let regex = try NSRegularExpression(pattern: REGEX.MAIL)
                 let nsString = textField.text! as NSString
-                let result = regex.matches(in: textField.text!, range: NSRange(location: 0, length: nsString.length))
-                if (!(result.count == 0)) {
+                /*if (!(result.count == 0)) {
                     isValidEmailInput.onNext(true)
                 } else {
                     isValidEmailInput.onNext(false)
                     textField.layer.borderColor = UIColor.red.cgColor
-                }
+                }*/
                 
             } catch let error as NSError {
                 print("\(COMMON_MESSAGES.INVALID_REGEX) \(error.localizedDescription)")

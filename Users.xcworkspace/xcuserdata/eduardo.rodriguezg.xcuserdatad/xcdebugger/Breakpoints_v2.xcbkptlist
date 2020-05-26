@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "DD76F8B6-200A-48E9-9665-B3FC8A92569E"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2C1BDCF-531A-442A-9C23-E9462FE21F24"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Users/Controllers/CreateOrUpdateViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "CreateOrUpdateViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "E2C1BDCF-531A-442A-9C23-E9462FE21F24 - 9b766b79e5247de3"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Users.CreateOrUpdateViewController.nameTextField.getter : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "Users"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eduardo.rodriguezg/XcodeProjects/Users/Users/Controllers/CreateOrUpdateViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "E2C1BDCF-531A-442A-9C23-E9462FE21F24 - 3a5d97064662a9f7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Users.CreateOrUpdateViewController.nameTextField.setter : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "Users"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eduardo.rodriguezg/XcodeProjects/Users/Users/Controllers/CreateOrUpdateViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "E2C1BDCF-531A-442A-9C23-E9462FE21F24 - ac15e7717250e0e6"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Users.CreateOrUpdateViewController.nameTextField.modify : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "Users"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eduardo.rodriguezg/XcodeProjects/Users/Users/Controllers/CreateOrUpdateViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "67">
+               </Location>
+               <Location
+                  uuid = "E2C1BDCF-531A-442A-9C23-E9462FE21F24 - 46db94c456fef48d"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Users.CreateOrUpdateViewController.nameTextField.modify : Swift.Optional&lt;__C.UITextField&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Users"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eduardo.rodriguezg/XcodeProjects/Users/Users/Controllers/CreateOrUpdateViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "E2C1BDCF-531A-442A-9C23-E9462FE21F24 - ec00873be880a172"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Users.CreateOrUpdateViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Users.CreateOrUpdateViewController"
+                  moduleName = "Users"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eduardo.rodriguezg/XcodeProjects/Users/Users/Controllers/CreateOrUpdateViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "789">
+               </Location>
+               <Location
+                  uuid = "E2C1BDCF-531A-442A-9C23-E9462FE21F24 - a2508145eccdbcb0"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Users.CreateOrUpdateViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Users.CreateOrUpdateViewController&gt;"
+                  moduleName = "Users"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eduardo.rodriguezg/XcodeProjects/Users/Users/Controllers/CreateOrUpdateViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "721">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
