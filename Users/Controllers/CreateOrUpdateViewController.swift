@@ -31,6 +31,14 @@ class CreateOrUpdateViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var brandLabel: UILabel!
+    @IBOutlet weak var dissplacementLabel: UILabel!
+    @IBOutlet weak var finalTransmitionLabel: UILabel!
+    @IBOutlet weak var fuelCapacityLabel: UILabel!
+    @IBOutlet weak var maximunSpeedLabel: UILabel!
+    @IBOutlet weak var maximunPowerLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     
     // MARK: - Variables
     var motorcycles: MotorcycleResponse?
@@ -116,6 +124,14 @@ class CreateOrUpdateViewController: UIViewController {
         nameTextField.tag = 6
         cancelButton.setTitle(COMMON_MESSAGES.CANCEL_BUTTON, for: .normal)
         indicator.isHidden = true
+        
+        setupLabels(label: brandLabel)
+        setupLabels(label: dissplacementLabel)
+        setupLabels(label: finalTransmitionLabel)
+        setupLabels(label: fuelCapacityLabel)
+        setupLabels(label: maximunSpeedLabel)
+        setupLabels(label: maximunPowerLabel)
+        setupLabels(label: nameLabel)
     }
     
     private func createOrUpdateMotorcycle() {
@@ -181,5 +197,13 @@ class CreateOrUpdateViewController: UIViewController {
             label.text = errorMEssage
             label.isHidden = false
         }
+    
+    func setupLabels(label: UILabel) {
+        label.isHidden = true
+        label.text = COMMON_MESSAGES.EMPTY
+        label.textColor = .red
+        label.font = UIFont.boldSystemFont(ofSize: 12.0)
+        label.clipsToBounds = true
+    }
     
 }
